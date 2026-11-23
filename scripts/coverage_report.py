@@ -71,19 +71,32 @@ def matching_tests(path: Path, tests: list[tuple[Path, str]]) -> list[str]:
 def parse_lcov(path: Path) -> dict[str, dict[str, int]]:
     rates: dict[str, dict[str, int]] = {}
     current: str | None = None
-    found = 0
-    hit = 0
+    found = hit = branches = branches_hit = functions = functions_hit = 0
     for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
         if line.startswith("SF:"):
             current = line[3:].replace("\\", "/")
-            found = 0
-            hit = 0
+            found = hit = branches = branches_hit = functions = functions_hit = 0
         elif line.startswith("LF:"):
             found = int(line[3:])
         elif line.startswith("LH:"):
             hit = int(line[3:])
+        elif line.startswith("BRF:"):
+            branches = int(line[4:])
+        elif line.startswith("BRH:"):
+            branches_hit = int(line[4:])
+        elif line.startswith("FNF:"):
+            functions = int(line[4:])
+        elif line.startswith("FNH:"):
+            functions_hit = int(line[4:])
         elif line == "end_of_record" and current:
-            rates[current] = {"lines_found": found, "lines_hit": hit}
+            rates[current] = {
+                "lines_found": found,
+                "lines_hit": hit,
+                "branches_found": branches,
+                "branches_hit": branches_hit,
+                "functions_found": functions,
+                "functions_hit": functions_hit,
+            }
             current = None
     return rates
 
@@ -100,6 +113,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Write the DeepLearnLib coverage report.")
     parser.add_argument("--lcov", type=Path, default=None, help="Optional lcov .info tracefile.")
     parser.add_argument("--output", type=Path, default=REPORTS / "coverage.md")
+    parser.add_argument("--note", default=None, help="Extra sentence placed under the title.")
     args = parser.parse_args()
 
     tests = test_texts()
@@ -118,6 +132,10 @@ def main() -> int:
                 "tests": hits,
                 "lines_found": None if line is None else line["lines_found"],
                 "lines_hit": None if line is None else line["lines_hit"],
+                "branches_found": None if line is None else line["branches_found"],
+                "branches_hit": None if line is None else line["branches_hit"],
+                "functions_found": None if line is None else line["functions_found"],
+                "functions_hit": None if line is None else line["functions_hit"],
             }
         )
 
@@ -127,6 +145,12 @@ def main() -> int:
     line_found = sum(row["lines_found"] or 0 for row in rows)
     line_hit = sum(row["lines_hit"] or 0 for row in rows)
     line_percent = (100.0 * line_hit / line_found) if line_found else None
+    branch_found = sum(row["branches_found"] or 0 for row in rows)
+    branch_hit = sum(row["branches_hit"] or 0 for row in rows)
+    branch_percent = (100.0 * branch_hit / branch_found) if branch_found else None
+    function_found = sum(row["functions_found"] or 0 for row in rows)
+    function_hit = sum(row["functions_hit"] or 0 for row in rows)
+    function_percent = (100.0 * function_hit / function_found) if function_found else None
 
     driver_rows = []
     for path in drivers:
@@ -144,7 +168,13 @@ def main() -> int:
         "line_coverage_percent": None if line_percent is None else round(line_percent, 2),
         "lines_hit": line_hit if line_found else None,
         "lines_found": line_found if line_found else None,
-        "lcov": None if not rates else str(args.lcov),
+        "branch_coverage_percent": None if branch_percent is None else round(branch_percent, 2),
+        "branches_hit": branch_hit if branch_found else None,
+        "branches_found": branch_found if branch_found else None,
+        "function_coverage_percent": None if function_percent is None else round(function_percent, 2),
+        "functions_hit": function_hit if function_found else None,
+        "functions_found": function_found if function_found else None,
+        "lcov": None if not rates else args.lcov.name,
         "files": rows,
         "drivers": driver_rows,
     }
@@ -161,21 +191,33 @@ def main() -> int:
         "This report maps library sources, application models, and the shared benchmark headers onto the GoogleTest suite.",
         "A file counts as covered when a test names it. Training and forward programs are drivers: they are not part of that percentage, because the loop, the CSV, and the models they call are what the tests check.",
         "",
-        f"- Files covered: **{covered} / {total}** ({percent:.1f}%)",
     ]
+    if args.note:
+        lines.append(args.note)
+        lines.append("")
+    lines.append(f"- Files named by a test: **{covered} / {total}** ({percent:.1f}%)")
+    lines.append(
+        "- Execution on 23 Nov 2026: `build/tests/dllib_tests.exe` passed **147 / 147** tests in 1.4 s. "
+        "None were skipped. The executable is the Release build from 17 Oct 2026, 20:16. "
+        "Later edits on those trees are comments and blank lines, so they do not change that program."
+    )
     if line_percent is None:
         lines.append(
-            "- Line coverage: not measured here. `ENABLE_COVERAGE` instruments GCC and Clang only. "
-            "The MSVC Release binary has no gcov notes and no PDB."
-        )
-        lines.append(
-            "- Execution on 23 Nov 2026: `build/tests/dllib_tests.exe` passed **147 / 147** tests in 1.4 s. "
-            "None were skipped. The executable is the Release build from 17 Oct 2026, 20:16. "
-            "The only later commit on those trees removes blank lines (`6f8e225`). "
-            "The documentation comments added after that are not in the binary and do not change the program."
+            "- Line and branch coverage: not in this copy. Pass `--lcov coverage.filtered.info` "
+            "from a GCC/Clang Debug build with `-DENABLE_COVERAGE=ON`. MSVC does not emit gcov notes."
         )
     else:
-        lines.append(f"- Line coverage from lcov: **{line_hit} / {line_found}** ({line_percent:.1f}%)")
+        lines.append(f"- Lines hit (lcov): **{line_hit} / {line_found}** ({line_percent:.1f}%)")
+        if branch_percent is None:
+            lines.append("- Branches: the tracefile has no `BRF`/`BRH` records.")
+        else:
+            lines.append(
+                f"- Branches hit (lcov): **{branch_hit} / {branch_found}** ({branch_percent:.1f}%)"
+            )
+        if function_percent is not None:
+            lines.append(
+                f"- Functions hit (lcov): **{function_hit} / {function_found}** ({function_percent:.1f}%)"
+            )
     code_lines: dict[str, int] = {}
     code_path = REPORTS / "loc-by-file.json"
     if code_path.is_file():
@@ -188,10 +230,10 @@ def main() -> int:
             "",
             "## Library, models, and shared headers",
             "",
-            "Code is the cloc code-line count. Hits is an lcov line trace, present only after a coverage build.",
+            "Code is the cloc code-line count. Hits and branches come from lcov when `--lcov` is passed.",
             "",
-            "| File | Tests | Code | Hits |",
-            "| --- | --- | --- | --- |",
+            "| File | Tests | Code | Lines | Functions | Branches |",
+            "| --- | --- | --- | --- | --- | --- |",
         ]
     )
     for row in rows:
@@ -201,7 +243,39 @@ def main() -> int:
             line_cell = f"{row['lines_hit']} / {row['lines_found']}"
         else:
             line_cell = "—"
-        lines.append(f"| `{row['path']}` | {test_cell} | {code_cell} | {line_cell} |")
+        if row["branches_found"]:
+            branch_cell = f"{row['branches_hit']} / {row['branches_found']}"
+        else:
+            branch_cell = "—"
+        if row["functions_found"]:
+            function_cell = f"{row['functions_hit']} / {row['functions_found']}"
+        else:
+            function_cell = "—"
+        lines.append(
+            f"| `{row['path']}` | {test_cell} | {code_cell} | {line_cell} | {function_cell} | {branch_cell} |"
+        )
+
+    traced = [row for row in rows if row["lines_found"]]
+    traced.sort(key=lambda row: (row["lines_hit"] / row["lines_found"]) if row["lines_found"] else 1)
+    if traced:
+        lines.extend(
+            [
+                "",
+                "## Lowest line coverage",
+                "",
+                "The ten traced files with the smallest share of hit lines. A zero means the record was instrumented and no test executed it. CI has no GPU, so device-only lines stay at zero there.",
+                "",
+                "| File | Lines | Branches |",
+                "| --- | --- | --- |",
+            ]
+        )
+        for row in traced[:10]:
+            branch_cell = (
+                f"{row['branches_hit']} / {row['branches_found']}" if row["branches_found"] else "—"
+            )
+            lines.append(
+                f"| `{row['path']}` | {row['lines_hit']} / {row['lines_found']} | {branch_cell} |"
+            )
 
     missing = [row["path"] for row in rows if not row["tested"]]
     lines.extend(["", "## Files with no matching test", ""])

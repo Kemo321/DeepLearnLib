@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['safe_5fdiv_0',['safe_div',['../_safe_math_8hpp.html#ab1bdb52544fe926d1ef7b16bb26d344c',1,'dl']]],
+  ['safe_5finv_1',['safe_inv',['../_safe_math_8hpp.html#a2a364e58e946e55b7ae817b78375a72b',1,'dl']]],
+  ['safemath_2ehpp_2',['SafeMath.hpp',['../_safe_math_8hpp.html',1,'']]],
+  ['save_3',['save',['../class_network.html#a2aa1b623916bc89a3cc10599976d4462',1,'Network']]],
+  ['set_4',['set',['../classdl_1_1_cudnn_activation_descriptor.html#a60aea9be2bae9904db074f4bd12ce9ae',1,'dl::CudnnActivationDescriptor']]],
+  ['set_5f2d_5',['set_2d',['../classdl_1_1_cudnn_convolution_descriptor.html#a4fb06e56f1db6331d2167aa957e416e9',1,'dl::CudnnConvolutionDescriptor']]],
+  ['set_5fcurrent_5fstream_6',['set_current_stream',['../_tensor_8hpp.html#af097328044ea903bbc4153bc47c7787c',1,'dl']]],
+  ['set_5fgradient_5fclip_7',['set_gradient_clip',['../class_network.html#a07c80d87fc786390a3a8376a9f0213f6',1,'Network']]],
+  ['set_5fmath_5ftype_8',['set_math_type',['../classdl_1_1_cudnn_convolution_descriptor.html#a461a6b5f4ed7db5ddaba3ab16a199773',1,'dl::CudnnConvolutionDescriptor']]],
+  ['set_5fmax_5f2d_9',['set_max_2d',['../classdl_1_1_cudnn_pooling_descriptor.html#a3585e5a7bf3b820afdd48d04ebffb543',1,'dl::CudnnPoolingDescriptor']]],
+  ['set_5fnchw_10',['set_nchw',['../classdl_1_1_cudnn_tensor_descriptor.html#a0a6cf58f86a710355695ca83268b4bfa',1,'dl::CudnnTensorDescriptor::set_nchw()'],['../classdl_1_1_cudnn_filter_descriptor.html#ac69e582ff29fb370c15c7a48c0c021f0',1,'dl::CudnnFilterDescriptor::set_nchw()']]],
+  ['set_5fparameters_11',['set_parameters',['../class_layer.html#af49168e68580a6c0cf83a91fa48adb20',1,'Layer::set_parameters()'],['../class_conv2d.html#aaf7590eb646bb36d99cec045aa0f7b78',1,'Conv2d::set_parameters()'],['../class_fully_connected.html#a1c35afd904fa739b8f7f453ca5c7c033',1,'FullyConnected::set_parameters()'],['../class_gru.html#a049243c6e9fcfb9e8855c705a4c71f0c',1,'Gru::set_parameters()']]],
+  ['sgd_5fmomentum_5fupdate_5f_12',['sgd_momentum_update_',['../classdl_1_1_tensor.html#a83428fefe4d6690e178308810d133aac',1,'dl::Tensor']]],
+  ['sgd_5fupdate_5f_13',['sgd_update_',['../classdl_1_1_tensor.html#adfcae488d27eae74ac861d47824e2a76',1,'dl::Tensor']]],
+  ['shared_20headers_14',['Library, models, and shared headers',['../md_reports_2coverage.html#autotoc_md21',1,'']]],
+  ['simplecnn_15',['SimpleCNN',['../class_simple_c_n_n.html',1,'SimpleCNN'],['../class_simple_c_n_n.html#a36903f17d3747bec0d1c77dde401ac2c',1,'SimpleCNN::SimpleCNN()']]],
+  ['simplecnn_2ehpp_16',['SimpleCNN.hpp',['../_simple_c_n_n_8hpp.html',1,'']]],
+  ['size_17',['size',['../classdl_1_1_cuda_workspace.html#a38747b394e85fcf9d6119545bd156414',1,'dl::CudaWorkspace::size()'],['../class_classification_loader.html#a06c41e7c2dd5416c62965903850c10a7',1,'ClassificationLoader::size()'],['../class_c_s_v_loader.html#ae4cd7215baad7940a7cdd4eaee47b94a',1,'CSVLoader::size()'],['../struct_ecg200_data.html#a15cdac3d878d73524799e3ab83ea051a',1,'Ecg200Data::size()'],['../class_packed_image_loader.html#a57dc2ed1acb4b8ead901bda4e5113e1a',1,'PackedImageLoader::size()']]],
+  ['sources_20compiled_20by_20nvcc_18',['Library sources compiled by nvcc',['../md_reports_2loc.html#autotoc_md19',1,'']]],
+  ['start_19',['start',['../class_profiler.html#a9ae8634a8086d3c70d1d5592ef42b931',1,'Profiler']]],
+  ['step_20',['step',['../class_layer.html#a9388f030be27ed40df2a9f0f5d23e1fd',1,'Layer::step()'],['../class_conv2d.html#a37415bc23cb5dbac02286675926c0dae',1,'Conv2d::step()'],['../class_fully_connected.html#ac0b99f62136e35eb96facef582784105',1,'FullyConnected::step()'],['../class_gru.html#ad759d6eee97b407386c5801559459bce',1,'Gru::step()']]],
+  ['step_5flearning_5frate_21',['step_learning_rate',['../class_layer.html#a6d4252479fd01682af52fa0796c5a2a8',1,'Layer']]],
+  ['stop_22',['stop',['../class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40',1,'Profiler']]],
+  ['streamguard_23',['StreamGuard',['../classdl_1_1_stream_guard.html',1,'dl']]],
+  ['sum_24',['sum',['../classdl_1_1_tensor.html#aed567e050f8f60980206ed23958c4149',1,'dl::Tensor']]]
+];

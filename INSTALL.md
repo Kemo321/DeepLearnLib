@@ -2,7 +2,7 @@
 
 Instrukcja dotyczy repozytorium DeepLearnLib. Rdzeń biblioteki nie linkuje LibTorch. LibTorch jest opcjonalny i służy wyłącznie programom porównawczym (`*_torch`).
 
-Skrót po angielsku jest w [README.md](README.md). Opis flag CMake jest w [docs/library/build.md](docs/library/build.md). Uruchamianie treningu i menu jest w [docs/usage/running.md](docs/usage/running.md).
+Skrót po angielsku jest w [README.md](README.md). Wygenerowany opis API jest w [docs/doxygen/html/index.html](docs/doxygen/html/index.html).
 
 ## Wymagania
 
@@ -48,7 +48,7 @@ Skrypt ładuje środowisko Visual C++ i dopiero wtedy uruchamia Git Bash oraz `s
 cuDNN i OpenCV muszą być widoczne przy konfiguracji. W używanej konfiguracji lokalnej:
 
 - `CUDNN_ROOT` wskazuje katalog cuDNN (nagłówki w `include`, biblioteki w `lib` albo `lib/x64`)
-- `OpenCV_DIR` wskazuje katalog z `OpenCVConfig.cmake`, na przykład `C:\Users\tomek\opencv\opencv\build`
+- `OpenCV_DIR` wskazuje katalog z `OpenCVConfig.cmake`
 
 Jeśli cuDNN pochodzi z pakietu pip `nvidia-cudnn`, ustaw `CUDNN_ROOT` na ten katalog. CMake kopiuje znalezione DLL cuDNN obok `dllib_tests`, żeby loader nie wziął innej kopii z `PATH`.
 
@@ -100,7 +100,7 @@ Komentarze Doxygen są w nagłówkach `include/DeepLearnLib/` oraz w `benchmarks
 doxygen Doxyfile
 ```
 
-Wynik jest w `docs/html/index.html`. Katalog jest w `.gitignore`. Opis ręczny API zostaje w `docs/library/`, a opis programów w `docs/usage/`.
+Wynik jest w `docs/doxygen/html/index.html` i jest w repozytorium. Po zmianie komentarzy wygeneruj go ponownie tym samym poleceniem.
 
 ## Metryki linii
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Copy the last row of each results/**/metrics_*.csv into docs/usage/measurements.md.
+"""Copy the last row of each results/**/metrics_*.csv into reports/measurements.md.
 
 results/ holds the CSV files from the thesis run. This script does not invent numbers. With no CSV files
 it writes a page that says the table is empty. GitHub Actions has no GPU and
@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-OUT = ROOT / "docs" / "usage" / "measurements.md"
+OUT = ROOT / "reports" / "measurements.md"
 
 
 def metric_files() -> list[Path]:

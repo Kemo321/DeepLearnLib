@@ -3,82 +3,103 @@
 This report maps library sources, application models, and the shared benchmark headers onto the GoogleTest suite.
 A file counts as covered when a test names it. Training and forward programs are drivers: they are not part of that percentage, because the loop, the CSV, and the models they call are what the tests check.
 
-- Files covered: **49 / 66** (74.2%)
-- Line coverage: not measured here. `ENABLE_COVERAGE` instruments GCC and Clang only. The MSVC Release binary has no gcov notes and no PDB.
-- Execution on 23 Nov 2026: `build/tests/dllib_tests.exe` passed **147 / 147** tests in 1.4 s. None were skipped. The executable is the Release build from 17 Oct 2026, 20:16. The only later commit on those trees removes blank lines (`6f8e225`). The documentation comments added after that are not in the binary and do not change the program.
+Line, function, and branch counts are from the lcov artifact of the Debug CI job on commit 6f8e225 (17 Oct 2026, lcov 1.15). The runner has no GPU. nvcc did not emit gcov records, so the CUDA translation units are absent from the trace rather than scored as zero. Totals count library, model, and shared-header records only, not libstdc++ or the CUDA headers.
+
+- Files named by a test: **49 / 66** (74.2%)
+- Execution on 23 Nov 2026: `build/tests/dllib_tests.exe` passed **147 / 147** tests in 1.4 s. None were skipped. The executable is the Release build from 17 Oct 2026, 20:16. Later edits on those trees are comments and blank lines, so they do not change that program.
+- Lines hit (lcov): **375 / 976** (38.4%)
+- Branches hit (lcov): **347 / 1596** (21.7%)
+- Functions hit (lcov): **49 / 142** (34.5%)
 
 ## Library, models, and shared headers
 
-Code is the cloc code-line count. Hits is an lcov line trace, present only after a coverage build.
+Code is the cloc code-line count. Hits and branches come from lcov when `--lcov` is passed.
 
-| File | Tests | Code | Hits |
-| --- | --- | --- | --- |
-| `benchmarks/common/classification_eval.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 241 | — |
-| `benchmarks/common/classification_vis.hpp` | — | 52 | — |
-| `benchmarks/common/custom_step.hpp` | — | 29 | — |
-| `benchmarks/common/experiment_config.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 179 | — |
-| `benchmarks/common/forward_plan.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 67 | — |
-| `benchmarks/common/image_train_custom.hpp` | — | 91 | — |
-| `benchmarks/common/image_train_torch.hpp` | — | 143 | — |
-| `benchmarks/common/indexed_train_custom.hpp` | — | 110 | — |
-| `benchmarks/common/indexed_train_torch.hpp` | — | 128 | — |
-| `benchmarks/common/prefetch_batch.hpp` | — | 46 | — |
-| `benchmarks/common/row_batch.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 121 | — |
-| `benchmarks/common/run_metrics.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 58 | — |
-| `benchmarks/common/split_metrics.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 35 | — |
-| `benchmarks/common/tabular_common.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 63 | — |
-| `benchmarks/common/tabular_pipeline.hpp` | — | 55 | — |
-| `benchmarks/common/torch_optim.hpp` | — | 56 | — |
-| `benchmarks/common/torch_paired_init.hpp` | — | 116 | — |
-| `benchmarks/common/train_loop.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 17 | — |
-| `benchmarks/models/cnn_shapes.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 13 | — |
-| `benchmarks/models/GruClassifier.cpp` | `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 43 | — |
-| `benchmarks/models/GruClassifier.hpp` | `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 20 | — |
-| `benchmarks/models/SimpleCNN.cpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp` | 62 | — |
-| `benchmarks/models/SimpleCNN.hpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp` | 20 | — |
-| `benchmarks/models/TabularMLP.cpp` | `tests/models/test_model_parity.cpp`, `tests/models/test_tabular_mlp.cpp` | 44 | — |
-| `benchmarks/models/TabularMLP.hpp` | `tests/models/test_model_parity.cpp`, `tests/models/test_tabular_mlp.cpp` | 20 | — |
-| `benchmarks/models/torch/TorchGruClassifier.hpp` | `tests/models/test_model_parity.cpp` | — | — |
-| `benchmarks/models/torch/TorchSimpleCNN.hpp` | `tests/models/test_model_parity.cpp` | — | — |
-| `benchmarks/models/torch/TorchTabularMLP.hpp` | `tests/models/test_model_parity.cpp` | — | — |
-| `include/DeepLearnLib/core/Batch.hpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/loaders/test_classification_loader.cpp`, `tests/loaders/test_packed_image_loader.cpp`, `tests/losses/test_generic.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp` | 7 | — |
-| `include/DeepLearnLib/core/Layer.hpp` | `tests/core/test_network.cpp`, `tests/layers/test_activations.cpp`, `tests/layers/test_conv2d.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_gru.cpp`, `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/losses/test_numerics.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp` | 58 | — |
-| `include/DeepLearnLib/core/Network.hpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/losses/test_numerics.cpp` | 26 | — |
-| `include/DeepLearnLib/core/Precision.hpp` | — | 14 | — |
-| `include/DeepLearnLib/core/Tensor.hpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_activations.cpp`, `tests/layers/test_conv2d.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_gru.cpp`, `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/loaders/test_classification_loader.cpp`, `tests/loaders/test_packed_image_loader.cpp`, `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp`, `tests/test_helpers.hpp` | 242 | — |
-| `include/DeepLearnLib/layers/Conv2d.hpp` | `tests/layers/test_conv2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 180 | — |
-| `include/DeepLearnLib/layers/Flatten.hpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_flatten.cpp` | 14 | — |
-| `include/DeepLearnLib/layers/FullyConnected.hpp` | `tests/core/test_network.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/losses/test_numerics.cpp` | 41 | — |
-| `include/DeepLearnLib/layers/Gru.hpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/layers/test_gru.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 35 | — |
-| `include/DeepLearnLib/layers/LeakyReLU.hpp` | `tests/layers/test_activations.cpp` | 18 | — |
-| `include/DeepLearnLib/layers/MaxPool2d.hpp` | `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 46 | — |
-| `include/DeepLearnLib/loaders/ClassificationLoader.hpp` | `tests/loaders/test_classification_loader.cpp` | 50 | — |
-| `include/DeepLearnLib/loaders/CSVLoader.hpp` | `tests/losses/test_generic.cpp` | 17 | — |
-| `include/DeepLearnLib/loaders/Ecg200Loader.hpp` | `tests/layers/test_gru.cpp` | 18 | — |
-| `include/DeepLearnLib/loaders/PackedImageLoader.hpp` | `tests/loaders/test_packed_image_loader.cpp` | 56 | — |
-| `include/DeepLearnLib/losses/Losses.hpp` | `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp` | 8 | — |
-| `include/DeepLearnLib/utils/ExperimentSeed.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 60 | — |
-| `include/DeepLearnLib/utils/Logger.hpp` | — | 22 | — |
-| `include/DeepLearnLib/utils/Nvtx.hpp` | — | 52 | — |
-| `include/DeepLearnLib/utils/ParallelFor.hpp` | `tests/loaders/test_classification_loader.cpp` | 66 | — |
-| `include/DeepLearnLib/utils/Profiler.hpp` | — | 22 | — |
-| `include/DeepLearnLib/utils/SafeMath.hpp` | `tests/losses/test_numerics.cpp` | 24 | — |
-| `src/core/Network.cpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/losses/test_numerics.cpp` | 221 | — |
-| `src/core/Precision.cpp` | — | 13 | — |
-| `src/core/Tensor.cpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_activations.cpp`, `tests/layers/test_conv2d.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_gru.cpp`, `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/loaders/test_classification_loader.cpp`, `tests/loaders/test_packed_image_loader.cpp`, `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp`, `tests/test_helpers.hpp` | 1200 | — |
-| `src/layers/Conv2d.cpp` | `tests/layers/test_conv2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 641 | — |
-| `src/layers/Flatten.cpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_flatten.cpp` | 47 | — |
-| `src/layers/FullyConnected.cpp` | `tests/core/test_network.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/losses/test_numerics.cpp` | 228 | — |
-| `src/layers/Gru.cpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/layers/test_gru.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 630 | — |
-| `src/layers/LeakyReLU.cpp` | `tests/layers/test_activations.cpp` | 112 | — |
-| `src/layers/MaxPool2d.cpp` | `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 135 | — |
-| `src/loaders/ClassificationLoader.cpp` | `tests/loaders/test_classification_loader.cpp` | 270 | — |
-| `src/loaders/CSVLoader.cpp` | `tests/losses/test_generic.cpp` | 136 | — |
-| `src/loaders/Ecg200Loader.cpp` | `tests/layers/test_gru.cpp` | 185 | — |
-| `src/loaders/PackedImageLoader.cpp` | `tests/loaders/test_packed_image_loader.cpp` | 251 | — |
-| `src/losses/Losses.cpp` | `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp` | 153 | — |
-| `src/utils/Logger.cpp` | — | 65 | — |
-| `src/utils/Profiler.cpp` | — | 67 | — |
+| File | Tests | Code | Lines | Functions | Branches |
+| --- | --- | --- | --- | --- | --- |
+| `benchmarks/common/classification_eval.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 241 | 19 / 19 | 2 / 2 | 8 / 8 |
+| `benchmarks/common/classification_vis.hpp` | — | 52 | — | — | — |
+| `benchmarks/common/custom_step.hpp` | — | 29 | — | — | — |
+| `benchmarks/common/experiment_config.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 179 | 45 / 54 | 5 / 5 | 66 / 144 |
+| `benchmarks/common/forward_plan.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 67 | 31 / 33 | 2 / 2 | 42 / 90 |
+| `benchmarks/common/image_train_custom.hpp` | — | 91 | — | — | — |
+| `benchmarks/common/image_train_torch.hpp` | — | 143 | — | — | — |
+| `benchmarks/common/indexed_train_custom.hpp` | — | 110 | — | — | — |
+| `benchmarks/common/indexed_train_torch.hpp` | — | 128 | — | — | — |
+| `benchmarks/common/prefetch_batch.hpp` | — | 46 | — | — | — |
+| `benchmarks/common/row_batch.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 121 | 41 / 47 | 4 / 4 | 35 / 68 |
+| `benchmarks/common/run_metrics.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 58 | 26 / 30 | 5 / 6 | 35 / 80 |
+| `benchmarks/common/split_metrics.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 35 | 15 / 15 | 3 / 3 | 6 / 6 |
+| `benchmarks/common/tabular_common.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 63 | 7 / 7 | 1 / 1 | 3 / 4 |
+| `benchmarks/common/tabular_pipeline.hpp` | — | 55 | — | — | — |
+| `benchmarks/common/torch_optim.hpp` | — | 56 | — | — | — |
+| `benchmarks/common/torch_paired_init.hpp` | — | 116 | — | — | — |
+| `benchmarks/common/train_loop.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 17 | 9 / 9 | 1 / 1 | 9 / 18 |
+| `benchmarks/models/cnn_shapes.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 13 | 8 / 8 | 2 / 2 | — |
+| `benchmarks/models/GruClassifier.cpp` | `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 43 | 7 / 25 | 1 / 6 | 6 / 30 |
+| `benchmarks/models/GruClassifier.hpp` | `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 20 | — | — | — |
+| `benchmarks/models/SimpleCNN.cpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp` | 62 | 0 / 36 | 0 / 6 | 0 / 60 |
+| `benchmarks/models/SimpleCNN.hpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp` | 20 | — | — | — |
+| `benchmarks/models/TabularMLP.cpp` | `tests/models/test_model_parity.cpp`, `tests/models/test_tabular_mlp.cpp` | 44 | 7 / 26 | 1 / 6 | 6 / 34 |
+| `benchmarks/models/TabularMLP.hpp` | `tests/models/test_model_parity.cpp`, `tests/models/test_tabular_mlp.cpp` | 20 | — | — | — |
+| `benchmarks/models/torch/TorchGruClassifier.hpp` | `tests/models/test_model_parity.cpp` | — | — | — | — |
+| `benchmarks/models/torch/TorchSimpleCNN.hpp` | `tests/models/test_model_parity.cpp` | — | — | — | — |
+| `benchmarks/models/torch/TorchTabularMLP.hpp` | `tests/models/test_model_parity.cpp` | — | — | — | — |
+| `include/DeepLearnLib/core/Batch.hpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/loaders/test_classification_loader.cpp`, `tests/loaders/test_packed_image_loader.cpp`, `tests/losses/test_generic.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp` | 7 | — | — | — |
+| `include/DeepLearnLib/core/Layer.hpp` | `tests/core/test_network.cpp`, `tests/layers/test_activations.cpp`, `tests/layers/test_conv2d.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_gru.cpp`, `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/losses/test_numerics.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp` | 58 | 1 / 18 | 1 / 9 | — |
+| `include/DeepLearnLib/core/Network.hpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/losses/test_numerics.cpp` | 26 | — | — | — |
+| `include/DeepLearnLib/core/Precision.hpp` | — | 14 | — | — | — |
+| `include/DeepLearnLib/core/Tensor.hpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_activations.cpp`, `tests/layers/test_conv2d.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_gru.cpp`, `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/loaders/test_classification_loader.cpp`, `tests/loaders/test_packed_image_loader.cpp`, `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp`, `tests/test_helpers.hpp` | 242 | 5 / 19 | 2 / 6 | 1 / 26 |
+| `include/DeepLearnLib/layers/Conv2d.hpp` | `tests/layers/test_conv2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 180 | 0 / 13 | 0 / 3 | 0 / 22 |
+| `include/DeepLearnLib/layers/Flatten.hpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_flatten.cpp` | 14 | 0 / 1 | 0 / 1 | — |
+| `include/DeepLearnLib/layers/FullyConnected.hpp` | `tests/core/test_network.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/losses/test_numerics.cpp` | 41 | — | — | — |
+| `include/DeepLearnLib/layers/Gru.hpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/layers/test_gru.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 35 | — | — | — |
+| `include/DeepLearnLib/layers/LeakyReLU.hpp` | `tests/layers/test_activations.cpp` | 18 | — | — | — |
+| `include/DeepLearnLib/layers/MaxPool2d.hpp` | `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 46 | — | — | — |
+| `include/DeepLearnLib/loaders/ClassificationLoader.hpp` | `tests/loaders/test_classification_loader.cpp` | 50 | — | — | — |
+| `include/DeepLearnLib/loaders/CSVLoader.hpp` | `tests/losses/test_generic.cpp` | 17 | — | — | — |
+| `include/DeepLearnLib/loaders/Ecg200Loader.hpp` | `tests/layers/test_gru.cpp` | 18 | 2 / 2 | 1 / 1 | — |
+| `include/DeepLearnLib/loaders/PackedImageLoader.hpp` | `tests/loaders/test_packed_image_loader.cpp` | 56 | — | — | — |
+| `include/DeepLearnLib/losses/Losses.hpp` | `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp` | 8 | — | — | — |
+| `include/DeepLearnLib/utils/ExperimentSeed.hpp` | `tests/benchmarks/test_train_metrics.cpp` | 60 | 21 / 22 | 3 / 4 | 4 / 6 |
+| `include/DeepLearnLib/utils/Logger.hpp` | — | 22 | — | — | — |
+| `include/DeepLearnLib/utils/Nvtx.hpp` | — | 52 | 0 / 6 | 0 / 2 | — |
+| `include/DeepLearnLib/utils/ParallelFor.hpp` | `tests/loaders/test_classification_loader.cpp` | 66 | 0 / 30 | 0 / 3 | 0 / 32 |
+| `include/DeepLearnLib/utils/Profiler.hpp` | — | 22 | — | — | — |
+| `include/DeepLearnLib/utils/SafeMath.hpp` | `tests/losses/test_numerics.cpp` | 24 | 0 / 4 | 0 / 2 | — |
+| `src/core/Network.cpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/losses/test_numerics.cpp` | 221 | — | — | — |
+| `src/core/Precision.cpp` | — | 13 | 0 / 5 | 0 / 1 | 0 / 2 |
+| `src/core/Tensor.cpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_activations.cpp`, `tests/layers/test_conv2d.cpp`, `tests/layers/test_flatten.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_gru.cpp`, `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/loaders/test_classification_loader.cpp`, `tests/loaders/test_packed_image_loader.cpp`, `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp`, `tests/models/test_simplecnn.cpp`, `tests/models/test_tabular_mlp.cpp`, `tests/test_helpers.hpp` | 1200 | — | — | — |
+| `src/layers/Conv2d.cpp` | `tests/layers/test_conv2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 641 | — | — | — |
+| `src/layers/Flatten.cpp` | `tests/core/test_network.cpp`, `tests/core/test_tensor.cpp`, `tests/layers/test_flatten.cpp` | 47 | 0 / 25 | 0 / 3 | 0 / 54 |
+| `src/layers/FullyConnected.cpp` | `tests/core/test_network.cpp`, `tests/layers/test_fullyconnected.cpp`, `tests/layers/test_torch_equivalence.cpp`, `tests/losses/test_numerics.cpp` | 228 | — | — | — |
+| `src/layers/Gru.cpp` | `tests/benchmarks/test_train_metrics.cpp`, `tests/layers/test_gru.cpp`, `tests/models/test_gru_classifier.cpp`, `tests/models/test_model_parity.cpp` | 630 | — | — | — |
+| `src/layers/LeakyReLU.cpp` | `tests/layers/test_activations.cpp` | 112 | — | — | — |
+| `src/layers/MaxPool2d.cpp` | `tests/layers/test_maxpool2d.cpp`, `tests/layers/test_torch_equivalence.cpp` | 135 | 0 / 86 | 0 / 11 | 0 / 162 |
+| `src/loaders/ClassificationLoader.cpp` | `tests/loaders/test_classification_loader.cpp` | 270 | — | — | — |
+| `src/loaders/CSVLoader.cpp` | `tests/losses/test_generic.cpp` | 136 | 10 / 73 | 3 / 7 | 7 / 122 |
+| `src/loaders/Ecg200Loader.cpp` | `tests/layers/test_gru.cpp` | 185 | 87 / 110 | 6 / 7 | 95 / 230 |
+| `src/loaders/PackedImageLoader.cpp` | `tests/loaders/test_packed_image_loader.cpp` | 251 | 0 / 155 | 0 / 23 | 0 / 158 |
+| `src/losses/Losses.cpp` | `tests/losses/test_generic.cpp`, `tests/losses/test_numerics.cpp` | 153 | 1 / 63 | 1 / 10 | 0 / 188 |
+| `src/utils/Logger.cpp` | — | 65 | 33 / 35 | 5 / 5 | 24 / 52 |
+| `src/utils/Profiler.cpp` | — | 67 | — | — | — |
+
+## Lowest line coverage
+
+The ten traced files with the smallest share of hit lines. A zero means the record was instrumented and no test executed it. CI has no GPU, so device-only lines stay at zero there.
+
+| File | Lines | Branches |
+| --- | --- | --- |
+| `benchmarks/models/SimpleCNN.cpp` | 0 / 36 | 0 / 60 |
+| `include/DeepLearnLib/layers/Conv2d.hpp` | 0 / 13 | 0 / 22 |
+| `include/DeepLearnLib/layers/Flatten.hpp` | 0 / 1 | — |
+| `include/DeepLearnLib/utils/Nvtx.hpp` | 0 / 6 | — |
+| `include/DeepLearnLib/utils/ParallelFor.hpp` | 0 / 30 | 0 / 32 |
+| `include/DeepLearnLib/utils/SafeMath.hpp` | 0 / 4 | — |
+| `src/core/Precision.cpp` | 0 / 5 | 0 / 2 |
+| `src/layers/Flatten.cpp` | 0 / 25 | 0 / 54 |
+| `src/layers/MaxPool2d.cpp` | 0 / 86 | 0 / 162 |
+| `src/loaders/PackedImageLoader.cpp` | 0 / 155 | 0 / 158 |
 
 ## Files with no matching test
 

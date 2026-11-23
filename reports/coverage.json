@@ -2,10 +2,16 @@
   "file_coverage_percent": 74.24,
   "files_covered": 49,
   "files_total": 66,
-  "line_coverage_percent": null,
-  "lines_hit": null,
-  "lines_found": null,
-  "lcov": null,
+  "line_coverage_percent": 38.42,
+  "lines_hit": 375,
+  "lines_found": 976,
+  "branch_coverage_percent": 21.74,
+  "branches_hit": 347,
+  "branches_found": 1596,
+  "function_coverage_percent": 34.51,
+  "functions_hit": 49,
+  "functions_found": 142,
+  "lcov": "coverage.filtered.info",
   "files": [
     {
       "path": "benchmarks/common/classification_eval.hpp",
@@ -13,22 +19,34 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 19,
+      "lines_hit": 19,
+      "branches_found": 8,
+      "branches_hit": 8,
+      "functions_found": 2,
+      "functions_hit": 2
     },
     {
       "path": "benchmarks/common/classification_vis.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/custom_step.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/experiment_config.hpp",
@@ -36,8 +54,12 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 54,
+      "lines_hit": 45,
+      "branches_found": 144,
+      "branches_hit": 66,
+      "functions_found": 5,
+      "functions_hit": 5
     },
     {
       "path": "benchmarks/common/forward_plan.hpp",
@@ -45,43 +67,67 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 33,
+      "lines_hit": 31,
+      "branches_found": 90,
+      "branches_hit": 42,
+      "functions_found": 2,
+      "functions_hit": 2
     },
     {
       "path": "benchmarks/common/image_train_custom.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/image_train_torch.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/indexed_train_custom.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/indexed_train_torch.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/prefetch_batch.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/row_batch.hpp",
@@ -89,8 +135,12 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 47,
+      "lines_hit": 41,
+      "branches_found": 68,
+      "branches_hit": 35,
+      "functions_found": 4,
+      "functions_hit": 4
     },
     {
       "path": "benchmarks/common/run_metrics.hpp",
@@ -98,8 +148,12 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 30,
+      "lines_hit": 26,
+      "branches_found": 80,
+      "branches_hit": 35,
+      "functions_found": 6,
+      "functions_hit": 5
     },
     {
       "path": "benchmarks/common/split_metrics.hpp",
@@ -107,8 +161,12 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 15,
+      "lines_hit": 15,
+      "branches_found": 6,
+      "branches_hit": 6,
+      "functions_found": 3,
+      "functions_hit": 3
     },
     {
       "path": "benchmarks/common/tabular_common.hpp",
@@ -116,29 +174,45 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 7,
+      "lines_hit": 7,
+      "branches_found": 4,
+      "branches_hit": 3,
+      "functions_found": 1,
+      "functions_hit": 1
     },
     {
       "path": "benchmarks/common/tabular_pipeline.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/torch_optim.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/torch_paired_init.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/common/train_loop.hpp",
@@ -146,8 +220,12 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 9,
+      "lines_hit": 9,
+      "branches_found": 18,
+      "branches_hit": 9,
+      "functions_found": 1,
+      "functions_hit": 1
     },
     {
       "path": "benchmarks/models/cnn_shapes.hpp",
@@ -155,8 +233,12 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 8,
+      "lines_hit": 8,
+      "branches_found": 0,
+      "branches_hit": 0,
+      "functions_found": 2,
+      "functions_hit": 2
     },
     {
       "path": "benchmarks/models/GruClassifier.cpp",
@@ -165,8 +247,12 @@
         "tests/models/test_gru_classifier.cpp",
         "tests/models/test_model_parity.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 25,
+      "lines_hit": 7,
+      "branches_found": 30,
+      "branches_hit": 6,
+      "functions_found": 6,
+      "functions_hit": 1
     },
     {
       "path": "benchmarks/models/GruClassifier.hpp",
@@ -176,7 +262,11 @@
         "tests/models/test_model_parity.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/models/SimpleCNN.cpp",
@@ -186,8 +276,12 @@
         "tests/models/test_model_parity.cpp",
         "tests/models/test_simplecnn.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 36,
+      "lines_hit": 0,
+      "branches_found": 60,
+      "branches_hit": 0,
+      "functions_found": 6,
+      "functions_hit": 0
     },
     {
       "path": "benchmarks/models/SimpleCNN.hpp",
@@ -198,7 +292,11 @@
         "tests/models/test_simplecnn.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/models/TabularMLP.cpp",
@@ -207,8 +305,12 @@
         "tests/models/test_model_parity.cpp",
         "tests/models/test_tabular_mlp.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 26,
+      "lines_hit": 7,
+      "branches_found": 34,
+      "branches_hit": 6,
+      "functions_found": 6,
+      "functions_hit": 1
     },
     {
       "path": "benchmarks/models/TabularMLP.hpp",
@@ -218,7 +320,11 @@
         "tests/models/test_tabular_mlp.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/models/torch/TorchGruClassifier.hpp",
@@ -227,7 +333,11 @@
         "tests/models/test_model_parity.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/models/torch/TorchSimpleCNN.hpp",
@@ -236,7 +346,11 @@
         "tests/models/test_model_parity.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "benchmarks/models/torch/TorchTabularMLP.hpp",
@@ -245,7 +359,11 @@
         "tests/models/test_model_parity.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/core/Batch.hpp",
@@ -265,7 +383,11 @@
         "tests/models/test_tabular_mlp.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/core/Layer.hpp",
@@ -285,8 +407,12 @@
         "tests/models/test_simplecnn.cpp",
         "tests/models/test_tabular_mlp.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 18,
+      "lines_hit": 1,
+      "branches_found": 0,
+      "branches_hit": 0,
+      "functions_found": 9,
+      "functions_hit": 1
     },
     {
       "path": "include/DeepLearnLib/core/Network.hpp",
@@ -297,14 +423,22 @@
         "tests/losses/test_numerics.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/core/Precision.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/core/Tensor.hpp",
@@ -329,8 +463,12 @@
         "tests/models/test_tabular_mlp.cpp",
         "tests/test_helpers.hpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 19,
+      "lines_hit": 5,
+      "branches_found": 26,
+      "branches_hit": 1,
+      "functions_found": 6,
+      "functions_hit": 2
     },
     {
       "path": "include/DeepLearnLib/layers/Conv2d.hpp",
@@ -339,8 +477,12 @@
         "tests/layers/test_conv2d.cpp",
         "tests/layers/test_torch_equivalence.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 13,
+      "lines_hit": 0,
+      "branches_found": 22,
+      "branches_hit": 0,
+      "functions_found": 3,
+      "functions_hit": 0
     },
     {
       "path": "include/DeepLearnLib/layers/Flatten.hpp",
@@ -350,8 +492,12 @@
         "tests/core/test_tensor.cpp",
         "tests/layers/test_flatten.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 1,
+      "lines_hit": 0,
+      "branches_found": 0,
+      "branches_hit": 0,
+      "functions_found": 1,
+      "functions_hit": 0
     },
     {
       "path": "include/DeepLearnLib/layers/FullyConnected.hpp",
@@ -363,7 +509,11 @@
         "tests/losses/test_numerics.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/layers/Gru.hpp",
@@ -375,7 +525,11 @@
         "tests/models/test_model_parity.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/layers/LeakyReLU.hpp",
@@ -384,7 +538,11 @@
         "tests/layers/test_activations.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/layers/MaxPool2d.hpp",
@@ -394,7 +552,11 @@
         "tests/layers/test_torch_equivalence.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/loaders/ClassificationLoader.hpp",
@@ -403,7 +565,11 @@
         "tests/loaders/test_classification_loader.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/loaders/CSVLoader.hpp",
@@ -412,7 +578,11 @@
         "tests/losses/test_generic.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/loaders/Ecg200Loader.hpp",
@@ -420,8 +590,12 @@
       "tests": [
         "tests/layers/test_gru.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 2,
+      "lines_hit": 2,
+      "branches_found": 0,
+      "branches_hit": 0,
+      "functions_found": 1,
+      "functions_hit": 1
     },
     {
       "path": "include/DeepLearnLib/loaders/PackedImageLoader.hpp",
@@ -430,7 +604,11 @@
         "tests/loaders/test_packed_image_loader.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/losses/Losses.hpp",
@@ -440,7 +618,11 @@
         "tests/losses/test_numerics.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/utils/ExperimentSeed.hpp",
@@ -448,22 +630,34 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 22,
+      "lines_hit": 21,
+      "branches_found": 6,
+      "branches_hit": 4,
+      "functions_found": 4,
+      "functions_hit": 3
     },
     {
       "path": "include/DeepLearnLib/utils/Logger.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/utils/Nvtx.hpp",
       "tested": false,
       "tests": [],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 6,
+      "lines_hit": 0,
+      "branches_found": 0,
+      "branches_hit": 0,
+      "functions_found": 2,
+      "functions_hit": 0
     },
     {
       "path": "include/DeepLearnLib/utils/ParallelFor.hpp",
@@ -471,15 +665,23 @@
       "tests": [
         "tests/loaders/test_classification_loader.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 30,
+      "lines_hit": 0,
+      "branches_found": 32,
+      "branches_hit": 0,
+      "functions_found": 3,
+      "functions_hit": 0
     },
     {
       "path": "include/DeepLearnLib/utils/Profiler.hpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "include/DeepLearnLib/utils/SafeMath.hpp",
@@ -487,8 +689,12 @@
       "tests": [
         "tests/losses/test_numerics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 4,
+      "lines_hit": 0,
+      "branches_found": 0,
+      "branches_hit": 0,
+      "functions_found": 2,
+      "functions_hit": 0
     },
     {
       "path": "src/core/Network.cpp",
@@ -499,14 +705,22 @@
         "tests/losses/test_numerics.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/core/Precision.cpp",
       "tested": false,
       "tests": [],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 5,
+      "lines_hit": 0,
+      "branches_found": 2,
+      "branches_hit": 0,
+      "functions_found": 1,
+      "functions_hit": 0
     },
     {
       "path": "src/core/Tensor.cpp",
@@ -532,7 +746,11 @@
         "tests/test_helpers.hpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/layers/Conv2d.cpp",
@@ -542,7 +760,11 @@
         "tests/layers/test_torch_equivalence.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/layers/Flatten.cpp",
@@ -552,8 +774,12 @@
         "tests/core/test_tensor.cpp",
         "tests/layers/test_flatten.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 25,
+      "lines_hit": 0,
+      "branches_found": 54,
+      "branches_hit": 0,
+      "functions_found": 3,
+      "functions_hit": 0
     },
     {
       "path": "src/layers/FullyConnected.cpp",
@@ -565,7 +791,11 @@
         "tests/losses/test_numerics.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/layers/Gru.cpp",
@@ -577,7 +807,11 @@
         "tests/models/test_model_parity.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/layers/LeakyReLU.cpp",
@@ -586,7 +820,11 @@
         "tests/layers/test_activations.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/layers/MaxPool2d.cpp",
@@ -595,8 +833,12 @@
         "tests/layers/test_maxpool2d.cpp",
         "tests/layers/test_torch_equivalence.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 86,
+      "lines_hit": 0,
+      "branches_found": 162,
+      "branches_hit": 0,
+      "functions_found": 11,
+      "functions_hit": 0
     },
     {
       "path": "src/loaders/ClassificationLoader.cpp",
@@ -605,7 +847,11 @@
         "tests/loaders/test_classification_loader.cpp"
       ],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     },
     {
       "path": "src/loaders/CSVLoader.cpp",
@@ -613,8 +859,12 @@
       "tests": [
         "tests/losses/test_generic.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 73,
+      "lines_hit": 10,
+      "branches_found": 122,
+      "branches_hit": 7,
+      "functions_found": 7,
+      "functions_hit": 3
     },
     {
       "path": "src/loaders/Ecg200Loader.cpp",
@@ -622,8 +872,12 @@
       "tests": [
         "tests/layers/test_gru.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 110,
+      "lines_hit": 87,
+      "branches_found": 230,
+      "branches_hit": 95,
+      "functions_found": 7,
+      "functions_hit": 6
     },
     {
       "path": "src/loaders/PackedImageLoader.cpp",
@@ -631,8 +885,12 @@
       "tests": [
         "tests/loaders/test_packed_image_loader.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 155,
+      "lines_hit": 0,
+      "branches_found": 158,
+      "branches_hit": 0,
+      "functions_found": 23,
+      "functions_hit": 0
     },
     {
       "path": "src/losses/Losses.cpp",
@@ -641,22 +899,34 @@
         "tests/losses/test_generic.cpp",
         "tests/losses/test_numerics.cpp"
       ],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 63,
+      "lines_hit": 1,
+      "branches_found": 188,
+      "branches_hit": 0,
+      "functions_found": 10,
+      "functions_hit": 1
     },
     {
       "path": "src/utils/Logger.cpp",
       "tested": false,
       "tests": [],
-      "lines_found": null,
-      "lines_hit": null
+      "lines_found": 35,
+      "lines_hit": 33,
+      "branches_found": 52,
+      "branches_hit": 24,
+      "functions_found": 5,
+      "functions_hit": 5
     },
     {
       "path": "src/utils/Profiler.cpp",
       "tested": false,
       "tests": [],
       "lines_found": null,
-      "lines_hit": null
+      "lines_hit": null,
+      "branches_found": null,
+      "branches_hit": null,
+      "functions_found": null,
+      "functions_hit": null
     }
   ],
   "drivers": [

@@ -2,7 +2,7 @@
 
 PROJECT_NAME           = "DeepLearnLib"
 PROJECT_BRIEF          = "C++/CUDA library for training and inference"
-OUTPUT_DIRECTORY       = docs
+OUTPUT_DIRECTORY       = docs/doxygen
 OUTPUT_LANGUAGE        = English
 BRIEF_MEMBER_DESC      = YES
 REPEAT_BRIEF           = YES
@@ -21,17 +21,16 @@ INPUT                  = README.md \
                          INSTALL.md \
                          include/DeepLearnLib \
                          benchmarks/models \
-                         docs/README.md \
-                         docs/library \
-                         docs/usage \
                          reports/loc.md \
-                         reports/coverage.md
+                         reports/coverage.md \
+                         reports/measurements.md
 FILE_PATTERNS          = *.hpp \
                          *.h \
                          *.md
 RECURSIVE              = YES
 EXCLUDE                = benchmarks/models/torch
-EXCLUDE_PATTERNS       = */torch/*
+EXCLUDE_PATTERNS       = */torch/* \
+                         */html/*
 USE_MDFILE_AS_MAINPAGE = README.md
 SOURCE_BROWSER         = NO
 INLINE_SOURCES         = NO
