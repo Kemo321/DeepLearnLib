@@ -1,14 +1,10 @@
-# Project Role
-You are an expert C++ CUDA and HPC Engineer. We are building a custom Deep Learning framework from scratch. The application models are a CIFAR/MNIST CNN, a tabular MLP, and a cuDNN GRU. LibTorch is only the optional baseline in the `*_torch` programs.
+# DeepLearnLib
 
-# Project Goal
-Keep LibTorch (`torch::Tensor`, `<torch/torch.h>`) out of the core library. The core uses a custom `dl::Tensor` on NVIDIA's stack: CUDA, cuBLAS, cuDNN, and Thrust.
+The core in `include/DeepLearnLib` and `src` does not include `<torch/torch.h>` and does not use `torch::`. LibTorch stays in the `*_torch` programs.
 
-# Strict Rules for Code Generation
-1. ABSOLUTE BAN ON TORCH IN THE CORE: Never include `<torch/torch.h>` or use `torch::` namespaces in `include/DeepLearnLib` or `src`. The `*_torch` benchmarks are the only exception.
-2. TENSOR ARCHITECTURE: `dl::Tensor` allocates memory via `cudaMalloc` (managed by `CudaDeleter`). Tensors must manage GPU memory strictly and avoid unnecessary device-to-host (D2H) or host-to-device (H2D) transfers.
-3. USE cuDNN: Implement `Conv2d`, `MaxPool2d`, `BatchNorm2d`, and `Gru` using the cuDNN C API. You must handle descriptor setups (`cudnnTensorDescriptor_t`, `cudnnRNNDescriptor_t`, etc.) safely.
-4. USE cuBLAS: Implement `FullyConnected` layer forward and backward passes using `cublasSgemm`.
-5. USE THRUST: Implement element-wise operations (`LeakyReLU`, `Dropout`, and loss kernels) using NVIDIA Thrust (`thrust::device_ptr`, `thrust::transform`, `thrust::for_each`) or write simple custom CUDA kernels (`__global__`) when Thrust is a poor fit.
-6. NO CPU BOTTLENECKS: Operations should remain on the GPU. Avoid syncing with the CPU unless explicitly needed for logging or saving weights.
-7. ERROR HANDLING: Always wrap CUDA, cuBLAS, and cuDNN calls in error-checking macros (e.g., `CHECK_CUDA`, `CHECK_CUDNN`).
+- `dl::Tensor` owns GPU memory. Do not add a host copy unless the call is for logging or saving weights.
+- Conv2d, MaxPool2d, and Gru go through the cuDNN C API. FullyConnected forward and backward use `cublasSgemm`. The bias add, Leaky ReLU, cross-entropy, and the SGD step are small CUDA kernels.
+- Wrap CUDA, cuBLAS, and cuDNN calls in `CHECK_CUDA`, `CHECK_CUBLAS`, and `CHECK_CUDNN`.
+- Do not add a class, flag, or kernel that is not already in this tree unless the task asks for it.
+
+Polish thesis prose is governed by `.cursor/rules/thesis-prose.mdc` when that file is present.

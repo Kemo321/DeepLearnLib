@@ -37,8 +37,6 @@ jobs:
             --suppress=shiftTooManyBits \
             --error-exitcode=1 \
             -I include \
-            -i src/dataset.cpp \
-            -i src/utils.cpp \
             src/
 
   build-debug:
