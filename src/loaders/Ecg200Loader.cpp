@@ -1,3 +1,8 @@
+/**
+ * @file Ecg200Loader.cpp
+ * @brief Parse an ECG200 text file into equal-length series and class labels.
+ */
+
 #include "DeepLearnLib/loaders/Ecg200Loader.hpp"
 
 #include <algorithm>

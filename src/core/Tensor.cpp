@@ -1,3 +1,8 @@
+/**
+ * @file Tensor.cpp
+ * @brief Allocation, views, elementwise kernels, GEMM, and the SGD update.
+ */
+
 #include "DeepLearnLib/core/Tensor.hpp"
 #include <algorithm>
 #include <cmath>

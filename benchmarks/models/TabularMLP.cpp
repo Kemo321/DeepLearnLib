@@ -1,3 +1,8 @@
+/**
+ * @file TabularMLP.cpp
+ * @brief Assemble the one-hidden-layer perceptron from library layers.
+ */
+
 #include "TabularMLP.hpp"
 
 #include "DeepLearnLib/layers/FullyConnected.hpp"

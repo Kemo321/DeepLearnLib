@@ -1,3 +1,8 @@
+/**
+ * @file ParallelFor.hpp
+ * @brief Small host-side parallel loop used while decoding a batch.
+ */
+
 #pragma once
 
 #include <algorithm>
@@ -9,6 +14,13 @@
 namespace dl
 {
 
+/**
+ * @brief How many workers to spawn for @p work_items independent jobs.
+ *
+ * The count is at most 16, at most the hardware concurrency, and at most
+ * @p work_items. A single item, or no reported hardware concurrency with one
+ * item, uses one worker. Unknown hardware concurrency is treated as 8.
+ */
 inline auto parallel_worker_count(int work_items) -> int
 {
     if (work_items <= 1)
@@ -21,6 +33,13 @@ inline auto parallel_worker_count(int work_items) -> int
     return std::min(work_items, cap);
 }
 
+/**
+ * @brief Invoke @p fn once for every index in @c [0, count).
+ *
+ * Work is striped across workers. The first exception thrown by a worker is
+ * rethrown after the remaining workers have finished. @p fn must be safe to
+ * call concurrently on distinct indices.
+ */
 template <typename Fn>
 auto parallel_for(int count, Fn&& fn) -> void
 {

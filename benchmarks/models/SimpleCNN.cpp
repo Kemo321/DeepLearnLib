@@ -1,3 +1,8 @@
+/**
+ * @file SimpleCNN.cpp
+ * @brief Assemble the two-block image network from library layers.
+ */
+
 #include "SimpleCNN.hpp"
 
 #include "cnn_shapes.hpp"

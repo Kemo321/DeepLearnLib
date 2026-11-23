@@ -1,3 +1,8 @@
+/**
+ * @file GruClassifier.cpp
+ * @brief Assemble the GRU classifier from a GRU layer and a linear head.
+ */
+
 #include "GruClassifier.hpp"
 
 #include "DeepLearnLib/layers/FullyConnected.hpp"

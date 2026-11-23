@@ -1,3 +1,8 @@
+/**
+ * @file CSVLoader.cpp
+ * @brief Parse a rectangular CSV into host feature and target tensors.
+ */
+
 #include "DeepLearnLib/loaders/CSVLoader.hpp"
 
 #include <fstream>

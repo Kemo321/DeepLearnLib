@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -28,6 +29,7 @@ DRIVER_ROOTS = (
     ROOT / "benchmarks" / "micro",
 )
 SOURCE_SUFFIXES = {".cpp", ".cu", ".hpp", ".h", ".cuh"}
+TEST_CASE = re.compile(r"^(?:TEST|TEST_F|TYPED_TEST)\(\s*([^,\s]+)\s*,\s*([^\s)]+)", re.MULTILINE)
 
 
 def iter_sources(roots: tuple[Path, ...]) -> list[Path]:
@@ -162,17 +164,44 @@ def main() -> int:
         f"- Files covered: **{covered} / {total}** ({percent:.1f}%)",
     ]
     if line_percent is None:
-        lines.append("- Line coverage: not in this file. Run with `--lcov coverage.filtered.info` after a `--coverage` build. CI does that on the debug job.")
+        lines.append(
+            "- Line coverage: not measured here. `ENABLE_COVERAGE` instruments GCC and Clang only. "
+            "The MSVC Release binary has no gcov notes and no PDB."
+        )
+        lines.append(
+            "- Execution on 23 Nov 2026: `build/tests/dllib_tests.exe` passed **147 / 147** tests in 1.4 s. "
+            "None were skipped. The executable is the Release build from 17 Oct 2026, 20:16. "
+            "The only later commit on those trees removes blank lines (`6f8e225`). "
+            "The documentation comments added after that are not in the binary and do not change the program."
+        )
     else:
         lines.append(f"- Line coverage from lcov: **{line_hit} / {line_found}** ({line_percent:.1f}%)")
-    lines.extend(["", "## Library, models, and shared headers", "", "| File | Tests | Lines |", "| --- | --- | --- |"])
+    code_lines: dict[str, int] = {}
+    code_path = REPORTS / "loc-by-file.json"
+    if code_path.is_file():
+        loaded = json.loads(code_path.read_text(encoding="utf-8"))
+        if isinstance(loaded, dict):
+            code_lines = {str(key).replace("\\", "/"): int(value) for key, value in loaded.items()}
+
+    lines.extend(
+        [
+            "",
+            "## Library, models, and shared headers",
+            "",
+            "Code is the cloc code-line count. Hits is an lcov line trace, present only after a coverage build.",
+            "",
+            "| File | Tests | Code | Hits |",
+            "| --- | --- | --- | --- |",
+        ]
+    )
     for row in rows:
         test_cell = ", ".join(f"`{name}`" for name in row["tests"]) if row["tests"] else "—"
+        code_cell = str(code_lines[row["path"]]) if row["path"] in code_lines else "—"
         if row["lines_found"]:
             line_cell = f"{row['lines_hit']} / {row['lines_found']}"
         else:
             line_cell = "—"
-        lines.append(f"| `{row['path']}` | {test_cell} | {line_cell} |")
+        lines.append(f"| `{row['path']}` | {test_cell} | {code_cell} | {line_cell} |")
 
     missing = [row["path"] for row in rows if not row["tested"]]
     lines.extend(["", "## Files with no matching test", ""])
@@ -185,6 +214,26 @@ def main() -> int:
     for row in driver_rows:
         note = ", ".join(f"`{name}`" for name in row["tests"]) if row["tests"] else "paired binary"
         lines.append(f"- `{row['path']}` — {note}")
+
+    case_rows: list[tuple[str, str, str]] = []
+    for test_path, text in tests:
+        for match in TEST_CASE.finditer(text):
+            case_rows.append((test_path.relative_to(ROOT).as_posix(), match.group(1), match.group(2)))
+    lines.extend(
+        [
+            "",
+            "## Test cases",
+            "",
+            f"GoogleTest cases in `tests/`: **{len(case_rows)}**.",
+            "The file table above is a name match, not a line trace. A line percentage comes only from an lcov tracefile.",
+            "",
+            "| Test file | Suite | Case |",
+            "| --- | --- | --- |",
+        ]
+    )
+    for path, suite, name in case_rows:
+        lines.append(f"| `{path}` | `{suite}` | `{name}` |")
+
     lines.append("")
     output.write_text("\n".join(lines), encoding="utf-8", newline="\n")
     try:

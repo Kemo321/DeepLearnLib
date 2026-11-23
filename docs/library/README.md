@@ -14,6 +14,8 @@ Public API of the library (`include/DeepLearnLib/`, `src/`). Both trees use `cor
 | [Build](build.md) | Configuring and compiling the library |
 | [Conventions](conventions.md) | Names and the exceptions |
 
+The same headers are the source of the generated reference. From the repository root, `doxygen Doxyfile` writes `docs/html/index.html`. Install and build steps in Polish are in [INSTALL.md](../../INSTALL.md).
+
 Dependency direction inside the library:
 
 ```mermaid

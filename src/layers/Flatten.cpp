@@ -1,3 +1,8 @@
+/**
+ * @file Flatten.cpp
+ * @brief View that collapses every axis after the batch, and the inverse view.
+ */
+
 #include "DeepLearnLib/layers/Flatten.hpp"
 #include "DeepLearnLib/utils/Nvtx.hpp"
 

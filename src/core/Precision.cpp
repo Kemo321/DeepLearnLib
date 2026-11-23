@@ -1,3 +1,8 @@
+/**
+ * @file Precision.cpp
+ * @brief Name of the only supported element type.
+ */
+
 #include "DeepLearnLib/core/Precision.hpp"
 
 namespace dl

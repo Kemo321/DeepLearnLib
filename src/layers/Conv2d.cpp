@@ -1,3 +1,8 @@
+/**
+ * @file Conv2d.cpp
+ * @brief cuDNN convolution, algorithm search, and the descriptor wrappers.
+ */
+
 #include "DeepLearnLib/layers/Conv2d.hpp"
 #include "DeepLearnLib/utils/ExperimentSeed.hpp"
 #include "DeepLearnLib/utils/Nvtx.hpp"

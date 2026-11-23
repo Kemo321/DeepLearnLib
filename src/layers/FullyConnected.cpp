@@ -1,3 +1,8 @@
+/**
+ * @file FullyConnected.cpp
+ * @brief cuBLAS product, bias kernel, and the dense-layer SGD step.
+ */
+
 #include "DeepLearnLib/layers/FullyConnected.hpp"
 #include "DeepLearnLib/utils/ExperimentSeed.hpp"
 #include "DeepLearnLib/utils/Nvtx.hpp"

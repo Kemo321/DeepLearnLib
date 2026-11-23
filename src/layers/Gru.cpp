@@ -1,3 +1,8 @@
+/**
+ * @file Gru.cpp
+ * @brief cuDNN GRU descriptors, forward and backward, and weight-space export.
+ */
+
 #include "DeepLearnLib/layers/Gru.hpp"
 
 #include "DeepLearnLib/layers/Conv2d.hpp"

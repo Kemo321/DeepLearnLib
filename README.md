@@ -27,7 +27,19 @@ DeepLearnLib provides a dense `dl::Tensor` with GPU storage, in-place arithmetic
 - **Models** — `SimpleCNN`, `TabularMLP`, and `GruClassifier` are compiled into `DeepLearnModels` and linked only by apps and tests.
 - **Torch baselines** — optional LibTorch binaries (`*_torch`) for apples-to-apples timing. They are not part of the custom stack.
 
-Documentation is split in [docs/README.md](docs/README.md). The library API is [docs/library/](docs/library/README.md). Training binaries, models, and benchmarks are [docs/usage/](docs/usage/README.md).
+Documentation is split in [docs/README.md](docs/README.md). The library API is [docs/library/](docs/library/README.md). Training binaries, models, and benchmarks are [docs/usage/](docs/usage/README.md). Install and build steps in Polish are in [INSTALL.md](INSTALL.md).
+
+## API reference
+
+Public headers in `include/DeepLearnLib/` and `benchmarks/models/` carry the Doxygen comments. Generate the HTML reference from the repository root:
+
+```bash
+doxygen Doxyfile
+```
+
+Open `docs/html/index.html`. That tree is not committed. The hand-written manuals stay in `docs/`.
+
+Line counts from cloc are in [reports/loc.md](reports/loc.md). The test map is in [reports/coverage.md](reports/coverage.md). Regenerate the line counts with `powershell -File scripts/loc.ps1`.
 
 ## Prerequisites
 
@@ -63,7 +75,7 @@ cmake --build build --parallel
 ./build/tests/dllib_tests
 ```
 
-On Windows use `scripts/dev.ps1` (loads MSVC + Git Bash) rather than WSL `bash.exe`.
+On Windows use `scripts/dev.ps1` (loads MSVC + Git Bash) rather than WSL `bash.exe`. Step-by-step install, cuDNN, OpenCV, Doxygen, and cloc are in [INSTALL.md](INSTALL.md).
 
 ## Usage
 

@@ -1,3 +1,8 @@
+/**
+ * @file MaxPool2d.cpp
+ * @brief cuDNN max-pooling forward and the argmax backward.
+ */
+
 #include "DeepLearnLib/layers/MaxPool2d.hpp"
 #include "DeepLearnLib/utils/Nvtx.hpp"
 

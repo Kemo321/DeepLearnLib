@@ -1,3 +1,8 @@
+/**
+ * @file Losses.cpp
+ * @brief Softmax cross-entropy and the (probability - target) / batch gradient.
+ */
+
 #include "DeepLearnLib/losses/Losses.hpp"
 #include "DeepLearnLib/utils/SafeMath.hpp"
 

@@ -1,7 +1,7 @@
 {
-  "file_coverage_percent": 76.39,
-  "files_covered": 55,
-  "files_total": 72,
+  "file_coverage_percent": 74.24,
+  "files_covered": 49,
+  "files_total": 66,
   "line_coverage_percent": null,
   "lines_hit": null,
   "lines_found": null,
@@ -253,7 +253,6 @@
       "tests": [
         "tests/benchmarks/test_train_metrics.cpp",
         "tests/core/test_tensor.cpp",
-        "tests/layers/test_batchnorm2d.cpp",
         "tests/layers/test_flatten.cpp",
         "tests/layers/test_fullyconnected.cpp",
         "tests/layers/test_torch_equivalence.cpp",
@@ -274,14 +273,12 @@
       "tests": [
         "tests/core/test_network.cpp",
         "tests/layers/test_activations.cpp",
-        "tests/layers/test_batchnorm2d.cpp",
         "tests/layers/test_conv2d.cpp",
         "tests/layers/test_flatten.cpp",
         "tests/layers/test_fullyconnected.cpp",
         "tests/layers/test_gru.cpp",
         "tests/layers/test_maxpool2d.cpp",
         "tests/layers/test_torch_equivalence.cpp",
-        "tests/losses/test_generic.cpp",
         "tests/losses/test_numerics.cpp",
         "tests/models/test_gru_classifier.cpp",
         "tests/models/test_model_parity.cpp",
@@ -316,7 +313,6 @@
         "tests/core/test_network.cpp",
         "tests/core/test_tensor.cpp",
         "tests/layers/test_activations.cpp",
-        "tests/layers/test_batchnorm2d.cpp",
         "tests/layers/test_conv2d.cpp",
         "tests/layers/test_flatten.cpp",
         "tests/layers/test_fullyconnected.cpp",
@@ -337,30 +333,11 @@
       "lines_hit": null
     },
     {
-      "path": "include/DeepLearnLib/layers/BatchNorm2d.hpp",
-      "tested": true,
-      "tests": [
-        "tests/layers/test_batchnorm2d.cpp",
-        "tests/layers/test_torch_equivalence.cpp"
-      ],
-      "lines_found": null,
-      "lines_hit": null
-    },
-    {
       "path": "include/DeepLearnLib/layers/Conv2d.hpp",
       "tested": true,
       "tests": [
         "tests/layers/test_conv2d.cpp",
         "tests/layers/test_torch_equivalence.cpp"
-      ],
-      "lines_found": null,
-      "lines_hit": null
-    },
-    {
-      "path": "include/DeepLearnLib/layers/Dropout.hpp",
-      "tested": true,
-      "tests": [
-        "tests/layers/test_activations.cpp"
       ],
       "lines_found": null,
       "lines_hit": null
@@ -415,15 +392,6 @@
       "tests": [
         "tests/layers/test_maxpool2d.cpp",
         "tests/layers/test_torch_equivalence.cpp"
-      ],
-      "lines_found": null,
-      "lines_hit": null
-    },
-    {
-      "path": "include/DeepLearnLib/layers/Softmax.hpp",
-      "tested": true,
-      "tests": [
-        "tests/losses/test_generic.cpp"
       ],
       "lines_found": null,
       "lines_hit": null
@@ -547,7 +515,6 @@
         "tests/core/test_network.cpp",
         "tests/core/test_tensor.cpp",
         "tests/layers/test_activations.cpp",
-        "tests/layers/test_batchnorm2d.cpp",
         "tests/layers/test_conv2d.cpp",
         "tests/layers/test_flatten.cpp",
         "tests/layers/test_fullyconnected.cpp",
@@ -568,30 +535,11 @@
       "lines_hit": null
     },
     {
-      "path": "src/layers/BatchNorm2d.cpp",
-      "tested": true,
-      "tests": [
-        "tests/layers/test_batchnorm2d.cpp",
-        "tests/layers/test_torch_equivalence.cpp"
-      ],
-      "lines_found": null,
-      "lines_hit": null
-    },
-    {
       "path": "src/layers/Conv2d.cpp",
       "tested": true,
       "tests": [
         "tests/layers/test_conv2d.cpp",
         "tests/layers/test_torch_equivalence.cpp"
-      ],
-      "lines_found": null,
-      "lines_hit": null
-    },
-    {
-      "path": "src/layers/Dropout.cpp",
-      "tested": true,
-      "tests": [
-        "tests/layers/test_activations.cpp"
       ],
       "lines_found": null,
       "lines_hit": null
@@ -646,15 +594,6 @@
       "tests": [
         "tests/layers/test_maxpool2d.cpp",
         "tests/layers/test_torch_equivalence.cpp"
-      ],
-      "lines_found": null,
-      "lines_hit": null
-    },
-    {
-      "path": "src/layers/Softmax.cpp",
-      "tested": true,
-      "tests": [
-        "tests/losses/test_generic.cpp"
       ],
       "lines_found": null,
       "lines_hit": null

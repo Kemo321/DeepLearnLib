@@ -1,3 +1,8 @@
+/**
+ * @file PackedImageLoader.cpp
+ * @brief Read a DLIMG001 blob and upload NCHW batches.
+ */
+
 #include "DeepLearnLib/loaders/PackedImageLoader.hpp"
 #include "DeepLearnLib/core/Precision.hpp"
 #include "DeepLearnLib/utils/ExperimentSeed.hpp"

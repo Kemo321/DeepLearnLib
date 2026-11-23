@@ -42,6 +42,9 @@ ccache_data/
 *.exe
 *.app
 
+# Generated API reference
+docs/doxygen-warnings.txt
+
 # The measurements quoted in the thesis are versioned.
 !results/**/*.csv
 !results/**/*.png

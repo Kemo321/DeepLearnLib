@@ -1,3 +1,11 @@
+/**
+ * @file Nvtx.hpp
+ * @brief RAII range for NVIDIA Tools Extension, or a no-op when the header is absent.
+ *
+ * Forward, backward, and the optimizer step push a range so a Nsight trace can
+ * name those intervals. A build without NVTX compiles the same calls as empty.
+ */
+
 #pragma once
 
 #ifndef DEEPLEARNLIB_ENABLE_CUDA
@@ -34,6 +42,12 @@
 namespace dl
 {
 
+/**
+ * @brief Push an NVTX range for the lifetime of this object.
+ *
+ * Construct at the start of a scope. The destructor pops the range.
+ * With NVTX disabled the constructor ignores @p name.
+ */
 class NvtxRange
 {
 public:

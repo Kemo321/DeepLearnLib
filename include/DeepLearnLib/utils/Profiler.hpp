@@ -1,9 +1,24 @@
+/**
+ * @file Profiler.hpp
+ * @brief Short GPU intervals and a process-wide VRAM reading.
+ *
+ * Epoch timing does not use this class. An epoch is a wall-clock interval
+ * measured by the training program. @c Profiler is for a single GPU span
+ * bracketed by CUDA events.
+ */
+
 #pragma once
 
 #include "DeepLearnLib/core/Tensor.hpp"
 
 #include <cstddef>
 
+/**
+ * @brief Elapsed device time between @c start and @c stop.
+ *
+ * @c stop synchronizes the end event and returns milliseconds. One profiler
+ * measures one interval at a time.
+ */
 class Profiler
 {
 public:
@@ -15,8 +30,21 @@ public:
     Profiler(Profiler&&) = delete;
     auto operator=(Profiler&&) -> Profiler& = delete;
 
+    /** Record the start event on the current device. */
     auto start() -> void;
+
+    /**
+     * @brief Record the stop event and wait for it.
+     * @return Elapsed time in milliseconds.
+     */
     [[nodiscard]] auto stop() -> float;
+
+    /**
+     * @brief Memory occupied on the current device, in mebibytes.
+     *
+     * This is @c cudaMemGetInfo: total minus free. The figure includes the
+     * driver context, cuBLAS, and cuDNN, not only tensors allocated by the library.
+     */
     [[nodiscard]] static auto get_vram_usage_mb() -> std::size_t;
 
 private:

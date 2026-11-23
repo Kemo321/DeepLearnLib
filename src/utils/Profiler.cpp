@@ -1,3 +1,8 @@
+/**
+ * @file Profiler.cpp
+ * @brief CUDA-event interval and the cudaMemGetInfo reading.
+ */
+
 #include "DeepLearnLib/utils/Profiler.hpp"
 
 #include <stdexcept>

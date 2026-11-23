@@ -1,3 +1,8 @@
+/**
+ * @file Logger.cpp
+ * @brief spdlog backend used by the CUDA status checks.
+ */
+
 #include "DeepLearnLib/utils/Logger.hpp"
 
 #include <spdlog/async.h>

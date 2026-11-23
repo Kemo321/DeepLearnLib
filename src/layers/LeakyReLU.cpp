@@ -1,3 +1,8 @@
+/**
+ * @file LeakyReLU.cpp
+ * @brief Elementwise Leaky ReLU kernel and its gradient.
+ */
+
 #include "DeepLearnLib/layers/LeakyReLU.hpp"
 #include "DeepLearnLib/utils/Nvtx.hpp"
 

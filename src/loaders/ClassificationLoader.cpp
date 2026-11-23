@@ -1,3 +1,8 @@
+/**
+ * @file ClassificationLoader.cpp
+ * @brief OpenCV decode of a class-folder dataset and overlapped upload.
+ */
+
 #include "DeepLearnLib/loaders/ClassificationLoader.hpp"
 #include "DeepLearnLib/utils/ExperimentSeed.hpp"
 #include "DeepLearnLib/utils/Nvtx.hpp"

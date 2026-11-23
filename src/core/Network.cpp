@@ -1,3 +1,8 @@
+/**
+ * @file Network.cpp
+ * @brief Forward over a layer list, and the binary checkpoint reader and writer.
+ */
+
 #include "DeepLearnLib/core/Network.hpp"
 
 #include <cstddef>
