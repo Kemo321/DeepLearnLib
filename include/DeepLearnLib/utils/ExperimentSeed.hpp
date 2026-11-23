@@ -16,6 +16,13 @@
 #include <utility>
 #include <vector>
 
+#ifdef max
+#undef max
+#endif
+#ifdef min
+#undef min
+#endif
+
 namespace dl
 {
 
