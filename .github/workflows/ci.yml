@@ -32,6 +32,7 @@ jobs:
 
       - name: Run Cppcheck
         run: |
+          # Kernel launches use <<<grid, block>>>, which cppcheck parses as shifts.
           cppcheck --enable=warning --inline-suppr \
             --suppressions-list=.cppcheck_suppressions \
             --suppress=shiftTooManyBits \
