@@ -2,7 +2,7 @@
 
 Instrukcja dotyczy repozytorium DeepLearnLib. Rdzeń biblioteki nie linkuje LibTorch. LibTorch jest opcjonalny i służy wyłącznie programom porównawczym (`*_torch`).
 
-Skrót po angielsku jest w [README.md](README.md). Wygenerowany opis API jest w [docs/doxygen/html/index.html](docs/doxygen/html/index.html).
+Skrót po angielsku jest w [README.md](README.md). Wygenerowany opis API jest jedną stroną HTML: <https://kemo321.github.io/DeepLearnLib/>.
 
 ## Wymagania
 
@@ -100,7 +100,7 @@ Komentarze Doxygen są w nagłówkach `include/DeepLearnLib/` oraz w `benchmarks
 doxygen Doxyfile
 ```
 
-Wynik jest w `docs/doxygen/html/index.html` i jest w repozytorium. Po zmianie komentarzy wygeneruj go ponownie tym samym poleceniem.
+Wynik jest w `docs/doxygen/html/index.html` i jest publikowany jako <https://kemo321.github.io/DeepLearnLib/>. Raport pokrycia jest pod <https://kemo321.github.io/DeepLearnLib/coverage.html>, a zestawienie linii pod <https://kemo321.github.io/DeepLearnLib/loc.html>. Po zmianie komentarzy wygeneruj HTML ponownie tym samym poleceniem.
 
 ## Metryki linii
 

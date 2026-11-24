@@ -25,7 +25,7 @@ reports/                cloc, coverage, and the last measured epoch
 
 ## API reference
 
-The generated reference is [docs/doxygen/html/index.html](docs/doxygen/html/index.html). It is built from the Doxygen comments in `include/DeepLearnLib/` and `benchmarks/models/`. After a comment change, regenerate it from the repository root:
+The generated reference is one HTML site: <https://kemo321.github.io/DeepLearnLib/>. The coverage report is <https://kemo321.github.io/DeepLearnLib/coverage.html> and the line-count report is <https://kemo321.github.io/DeepLearnLib/loc.html>. It is built from the Doxygen comments in `include/DeepLearnLib/` and `benchmarks/models/`. After a comment change, regenerate it from the repository root:
 
 ```bash
 doxygen Doxyfile
@@ -85,7 +85,7 @@ lcov --extract coverage.info '*/src/*' '*/include/*' '*/tests/*' '*/benchmarks/m
 python3 scripts/coverage_report.py --lcov coverage.filtered.info
 ```
 
-`ENABLE_COVERAGE` does nothing under MSVC. CI runs this job without a GPU, so device-only lines stay uncovered there. The hosted summary is the `lcov-coverage` artifact of the Debug job.
+`ENABLE_COVERAGE` does nothing under MSVC. CI runs this job without a GPU, so device-only lines stay uncovered there. The summary on the documentation site is [coverage.html](https://kemo321.github.io/DeepLearnLib/coverage.html). The Debug job also uploads the line-level `lcov-coverage` artifact.
 
 Line counts from cloc 2.06 are in [reports/loc.md](reports/loc.md). Regenerate with `powershell -File scripts/loc.ps1`. Kernel sources use the `.cpp` extension and are compiled as CUDA; the report splits those files using `DEEPLEARN_CUDA_SOURCES`.
 

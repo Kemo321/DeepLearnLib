@@ -38,6 +38,9 @@ REFERENCED_BY_RELATION = YES
 REFERENCES_RELATION    = YES
 GENERATE_HTML          = YES
 HTML_OUTPUT            = html
+HTML_EXTRA_FILES       = docs/site/.nojekyll \
+                         docs/site/coverage.html \
+                         docs/site/loc.html
 GENERATE_LATEX         = NO
 GENERATE_XML           = NO
 GENERATE_DOCBOOK       = NO
