@@ -243,7 +243,7 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>clamp_</b> (float lo,
 <tr class="memdesc:ac72d3d54d515d66a3e0f9e2a0d1394c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throw if <code>has_non_finite</code> is true.  <br /></td></tr>
 <tr class="separator:ac72d3d54d515d66a3e0f9e2a0d1394c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed567e050f8f60980206ed23958c4149" id="r_aed567e050f8f60980206ed23958c4149"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed567e050f8f60980206ed23958c4149">sum</a> (int dim=-1) const -&gt; <a class="el" href="classdl_1_1_tensor.html">Tensor</a></td></tr>
-<tr class="memdesc:aed567e050f8f60980206ed23958c4149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of all elements.  <br /></td></tr>
+<tr class="memdesc:aed567e050f8f60980206ed23958c4149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum of all elements, as a one-element GPU tensor.  <br /></td></tr>
 <tr class="separator:aed567e050f8f60980206ed23958c4149"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac310411b3360b23ae5a2dc683d538191" id="r_ac310411b3360b23ae5a2dc683d538191"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac310411b3360b23ae5a2dc683d538191">view</a> (const std::vector&lt; int &gt; &amp;new_shape) const -&gt; <a class="el" href="classdl_1_1_tensor.html">Tensor</a></td></tr>
 <tr class="memdesc:ac310411b3360b23ae5a2dc683d538191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reshape without copying.  <br /></td></tr>
@@ -964,10 +964,16 @@ static auto&#160;</td><td class="memItemRight" valign="bottom"><b>zeros_like</b>
       </table>
 </div><div class="memdoc">
 
-<p>Sum of all elements. </p>
+<p>Sum of all elements, as a one-element GPU tensor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dim</td><td>Reserved. Only a full reduction (<code>-1</code>) is implemented. </td></tr>
+    <tr><td class="paramname">dim</td><td>Only a full reduction (<code>-1</code>) is implemented. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>if <code class="param">dim</code> is not <code>-1</code>. </td></tr>
   </table>
   </dd>
 </dl>

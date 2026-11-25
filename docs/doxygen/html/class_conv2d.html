@@ -207,7 +207,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>is_training_</b> = tr
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Square 2D convolution. </p>
-<p>The input is NCHW. Weights are exposed as <code>weights</code> and <code>bias</code>. <code>inertia_val</code> is the scale applied to a weight gradient already stored from an earlier backward; zero overwrites it. Forward and both backward algorithms come from cuDNN's search the first time a shape is seen. </p>
+<p>The input is NCHW. Weights are exposed as <code>weights</code> and <code>bias</code>. <code>inertia_val</code> is the scale applied to a weight gradient already stored from an earlier backward; zero overwrites it. Forward and both backward algorithms come from cuDNN's timed search the first time a shape is seen. When the search returns nothing, cuDNN's heuristic choice is used instead. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0280ed9b47b9eb6aae6ca8e66996ea79" name="a0280ed9b47b9eb6aae6ca8e66996ea79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0280ed9b47b9eb6aae6ca8e66996ea79">&#9670;&#160;</a></span>Conv2d()</h2>

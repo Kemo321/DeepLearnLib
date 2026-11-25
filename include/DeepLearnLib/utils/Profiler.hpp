@@ -30,12 +30,13 @@ public:
     Profiler(Profiler&&) = delete;
     auto operator=(Profiler&&) -> Profiler& = delete;
 
-    /** Record the start event on the current device. */
+    /** Record the start event on the legacy default stream. */
     auto start() -> void;
 
     /**
-     * @brief Record the stop event and wait for it.
+     * @brief Record the stop event on the legacy default stream and wait for it.
      * @return Elapsed time in milliseconds.
+     * @throws std::runtime_error if @c start was not called first.
      */
     [[nodiscard]] auto stop() -> float;
 

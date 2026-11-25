@@ -14,8 +14,9 @@
  * @brief Mean cross-entropy of logits against one-hot targets.
  *
  * Both tensors are rank-2, shaped @c [batch, classes], and must live on the GPU.
- * Softmax subtracts the row maximum. Probabilities passed to the logarithm are
- * clamped away from zero. The returned gradient is @c (probability - target) / batch.
+ * Softmax subtracts the row maximum. A row whose maximum is not finite gets a
+ * uniform distribution. Probabilities passed to the logarithm are clamped away
+ * from zero. The returned gradient is @c (probability - target) / batch.
  */
 class CrossEntropyLoss
 {
@@ -24,7 +25,8 @@ public:
      * @brief Mean cross-entropy over the batch.
      * @param target One-hot labels.
      * @param prediction Logits.
-     * @return A scalar GPU tensor. Reading it back synchronizes the current stream.
+     * @return A scalar GPU tensor. The call reads the summed row losses back to the
+     *         host, so it synchronizes the current stream.
      */
     [[nodiscard]] static auto loss(const dl::Tensor& target, const dl::Tensor& prediction) -> dl::Tensor;
 

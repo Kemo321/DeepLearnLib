@@ -126,7 +126,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Mean cross-entropy of logits against one-hot targets. </p>
-<p>Both tensors are rank-2, shaped <code></code>[batch, classes], and must live on the GPU. Softmax subtracts the row maximum. Probabilities passed to the logarithm are clamped away from zero. The returned gradient is <code></code>(probability - target) / batch. </p>
+<p>Both tensors are rank-2, shaped <code></code>[batch, classes], and must live on the GPU. Softmax subtracts the row maximum. A row whose maximum is not finite gets a uniform distribution. Probabilities passed to the logarithm are clamped away from zero. The returned gradient is <code></code>(probability - target) / batch. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4eab2ef5344280ade4ea1d64eef504ff" name="a4eab2ef5344280ade4ea1d64eef504ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4eab2ef5344280ade4ea1d64eef504ff">&#9670;&#160;</a></span>loss()</h2>
@@ -163,7 +163,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A scalar GPU tensor. Reading it back synchronizes the current stream. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A scalar GPU tensor. The call reads the summed row losses back to the host, so it synchronizes the current stream. </dd></dl>
 
 </div>
 </div>

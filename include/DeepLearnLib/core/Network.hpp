@@ -32,10 +32,11 @@ class Network
 {
 public:
     /**
-     * @brief Take ownership of @p layers_vector and copy optimizer settings onto each layer.
-     * @param layers_vector Layers in forward order. A null entry is rejected.
+     * @brief Take ownership of @p layers_vector and write the learning rate and clip bound onto each layer.
+     * @param layers_vector Layers in forward order.
      * @param learning_rate Initial step size written to every layer.
      * @param gradient_clip Absolute clip bound. The default is zero, which disables clipping.
+     * @throws std::runtime_error if @p layers_vector contains a null layer.
      */
     Network(std::vector<std::shared_ptr<Layer>> layers_vector, float learning_rate,
         float gradient_clip = dl::kDefaultGradientClip);

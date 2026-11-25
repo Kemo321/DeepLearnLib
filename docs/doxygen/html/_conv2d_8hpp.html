@@ -174,7 +174,7 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>dl::bind_cudnn_stream
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2D convolution through cuDNN, plus the descriptor wrappers it needs. </p>
-<p>Bias is applied in the same cuDNN call as the convolution, with an identity activation. Leaky ReLU stays a separate layer. Algorithms are chosen on the first batch of a given shape and reused until the shape changes. </p>
+<p>Bias is applied in the same cuDNN call as the convolution, with an identity activation. If cuDNN rejects that fused call, the convolution and the bias addition run as two calls. Leaky ReLU stays a separate layer. Algorithms are chosen on the first batch of a given shape and reused until the shape changes. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a2b915c4e3a9f16f1b9c89be30860e739" name="a2b915c4e3a9f16f1b9c89be30860e739"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2b915c4e3a9f16f1b9c89be30860e739">&#9670;&#160;</a></span>CHECK_CUDNN</h2>
@@ -191,7 +191,7 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>dl::bind_cudnn_stream
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_function" href="#abe71fd12bb94f820b309edcc5afe87ae">::dl::check_cudnn</a>((call), __FILE__, __LINE__)</div>
-<div class="ttc" id="a_conv2d_8hpp_html_abe71fd12bb94f820b309edcc5afe87ae"><div class="ttname"><a href="#abe71fd12bb94f820b309edcc5afe87ae">dl::check_cudnn</a></div><div class="ttdeci">auto check_cudnn(cudnnStatus_t status, const char *file, int line) -&gt; void</div><div class="ttdoc">Throw if status is not CUDNN_STATUS_SUCCESS.</div><div class="ttdef"><b>Definition</b> Conv2d.hpp:30</div></div>
+<div class="ttc" id="a_conv2d_8hpp_html_abe71fd12bb94f820b309edcc5afe87ae"><div class="ttname"><a href="#abe71fd12bb94f820b309edcc5afe87ae">dl::check_cudnn</a></div><div class="ttdeci">auto check_cudnn(cudnnStatus_t status, const char *file, int line) -&gt; void</div><div class="ttdoc">Throw if status is not CUDNN_STATUS_SUCCESS.</div><div class="ttdef"><b>Definition</b> Conv2d.hpp:31</div></div>
 </div><!-- fragment -->
 <p>Check a cuDNN call and report this source location on failure. </p>
 

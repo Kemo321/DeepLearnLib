@@ -152,9 +152,8 @@ constexpr unsigned long long&#160;</td><td class="memItemRight" valign="bottom">
 constexpr unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><b>dl::kConvBiasSeed</b> = 0xBADC0DEULL</td></tr>
 <tr class="memdesc:a4739c26299d2e2686543355e5226539c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for convolution bias values. <br /></td></tr>
 <tr class="separator:a4739c26299d2e2686543355e5226539c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad718c7effd99871ca3adaa7fc2c4ef97" id="r_ad718c7effd99871ca3adaa7fc2c4ef97"><td class="memItemLeft" align="right" valign="top"><a id="ad718c7effd99871ca3adaa7fc2c4ef97" name="ad718c7effd99871ca3adaa7fc2c4ef97"></a>
-constexpr unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><b>dl::kLinearWeightSeed</b> = 0xF00DULL</td></tr>
-<tr class="memdesc:ad718c7effd99871ca3adaa7fc2c4ef97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for fully-connected and GRU weight values. <br /></td></tr>
+<tr class="memitem:ad718c7effd99871ca3adaa7fc2c4ef97" id="r_ad718c7effd99871ca3adaa7fc2c4ef97"><td class="memItemLeft" align="right" valign="top">constexpr unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad718c7effd99871ca3adaa7fc2c4ef97">dl::kLinearWeightSeed</a> = 0xF00DULL</td></tr>
+<tr class="memdesc:ad718c7effd99871ca3adaa7fc2c4ef97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seed for fully-connected weight values.  <br /></td></tr>
 <tr class="separator:ad718c7effd99871ca3adaa7fc2c4ef97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33333482ea29f3d3d30057fc1eda6b20" id="r_a33333482ea29f3d3d30057fc1eda6b20"><td class="memItemLeft" align="right" valign="top"><a id="a33333482ea29f3d3d30057fc1eda6b20" name="a33333482ea29f3d3d30057fc1eda6b20"></a>
 constexpr unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><b>dl::kLinearBiasSeed</b> = 0xBEEFULL</td></tr>
@@ -241,7 +240,7 @@ constexpr unsigned long long&#160;</td><td class="memItemRight" valign="bottom">
 </div><div class="memdoc">
 
 <p>Half-width of the uniform initialization interval. </p>
-<dl class="section return"><dt>Returns</dt><dd><code>1</code> / sqrt(fan_in). A <code class="param">fan_in</code> of <code>1e-7</code> or less uses <code>1e-7</code> as the divisor. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>1</code> / sqrt(fan_in). A <code class="param">fan_in</code> of <code>1e-7</code> or less is replaced by <code>1e-7</code>. </dd></dl>
 
 </div>
 </div>
@@ -302,6 +301,32 @@ template&lt;typename T&gt; </div>
 
 <p>Fisher-Yates shuffle driven by <code>next_bounded</code>. </p>
 <p>Both stacks call this with an <code>mt19937</code> seeded by <code>kExperimentSeed</code>, so the example order of an epoch matches. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ad718c7effd99871ca3adaa7fc2c4ef97" name="ad718c7effd99871ca3adaa7fc2c4ef97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad718c7effd99871ca3adaa7fc2c4ef97">&#9670;&#160;</a></span>kLinearWeightSeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long dl::kLinearWeightSeed = 0xF00DULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Seed for fully-connected weight values. </p>
+<p>GRU derives its own per-gate seeds. </p>
 
 </div>
 </div>

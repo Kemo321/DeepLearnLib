@@ -132,10 +132,10 @@ auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a cla
 <tr class="separator:a4c75e6965069357bc6b1e1d817746ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ae8634a8086d3c70d1d5592ef42b931" id="r_a9ae8634a8086d3c70d1d5592ef42b931"><td class="memItemLeft" align="right" valign="top"><a id="a9ae8634a8086d3c70d1d5592ef42b931" name="a9ae8634a8086d3c70d1d5592ef42b931"></a>
 auto&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> () -&gt; void</td></tr>
-<tr class="memdesc:a9ae8634a8086d3c70d1d5592ef42b931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record the start event on the current device. <br /></td></tr>
+<tr class="memdesc:a9ae8634a8086d3c70d1d5592ef42b931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record the start event on the legacy default stream. <br /></td></tr>
 <tr class="separator:a9ae8634a8086d3c70d1d5592ef42b931"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cc1c7535a2b9cc09127eb09e70a1a40" id="r_a5cc1c7535a2b9cc09127eb09e70a1a40"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cc1c7535a2b9cc09127eb09e70a1a40">stop</a> () -&gt; float</td></tr>
-<tr class="memdesc:a5cc1c7535a2b9cc09127eb09e70a1a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record the stop event and wait for it.  <br /></td></tr>
+<tr class="memdesc:a5cc1c7535a2b9cc09127eb09e70a1a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record the stop event on the legacy default stream and wait for it.  <br /></td></tr>
 <tr class="separator:a5cc1c7535a2b9cc09127eb09e70a1a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -171,8 +171,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Record the stop event and wait for it. </p>
+<p>Record the stop event on the legacy default stream and wait for it. </p>
 <dl class="section return"><dt>Returns</dt><dd>Elapsed time in milliseconds. </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>if <code>start</code> was not called first. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

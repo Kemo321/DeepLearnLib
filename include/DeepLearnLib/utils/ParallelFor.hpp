@@ -18,8 +18,8 @@ namespace dl
  * @brief How many workers to spawn for @p work_items independent jobs.
  *
  * The count is at most 16, at most the hardware concurrency, and at most
- * @p work_items. A single item, or no reported hardware concurrency with one
- * item, uses one worker. Unknown hardware concurrency is treated as 8.
+ * @p work_items. One item or fewer uses one worker. Unknown hardware
+ * concurrency is treated as 8.
  */
 inline auto parallel_worker_count(int work_items) -> int
 {

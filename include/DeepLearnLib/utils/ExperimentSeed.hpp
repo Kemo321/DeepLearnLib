@@ -35,7 +35,7 @@ inline constexpr unsigned long long kConvWeightSeed = 0xC0FFEEULL;
 /** Seed for convolution bias values. */
 inline constexpr unsigned long long kConvBiasSeed = 0xBADC0DEULL;
 
-/** Seed for fully-connected and GRU weight values. */
+/** Seed for fully-connected weight values. GRU derives its own per-gate seeds. */
 inline constexpr unsigned long long kLinearWeightSeed = 0xF00DULL;
 
 /** Seed for fully-connected bias values. */
@@ -70,7 +70,7 @@ DL_PAIRED_UNIFORM_ATTR inline auto paired_uniform(int index, float low, float hi
 
 /**
  * @brief Half-width of the uniform initialization interval.
- * @return @c 1 / sqrt(fan_in). A @p fan_in of @c 1e-7 or less uses @c 1e-7 as the divisor.
+ * @return @c 1 / sqrt(fan_in). A @p fan_in of @c 1e-7 or less is replaced by @c 1e-7.
  */
 inline auto uniform_bound(float fan_in) -> float
 {

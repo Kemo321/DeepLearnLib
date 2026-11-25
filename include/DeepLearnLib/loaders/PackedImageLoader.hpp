@@ -71,7 +71,7 @@ public:
     /** Image width from the file header. */
     [[nodiscard]] auto width() const -> int;
 
-    /** Class names stored in the header, in one-hot order. */
+    /** Class names in one-hot order. The file stores none, so these are the indices @c "0", @c "1", ... */
     [[nodiscard]] auto class_names() const -> const std::vector<std::string>&;
 
     /** Integer label of sample @p index, before one-hot encoding. */

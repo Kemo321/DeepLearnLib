@@ -22,10 +22,11 @@
  * The input is @c [batch, time, features]. The output is @c [batch, hidden_size].
  * The initial hidden state is zero. Parameters are one cuDNN weight-space tensor
  * named @c weight_space, updated with the same SGD rule as the other layers.
- * For a hidden size of at most 128 the forward path uses
- * @c CUDNN_RNN_ALGO_PERSIST_STATIC_SMALL_H. Arithmetic stays on cuDNN's default
- * math mode so the gate order matches LibTorch. @c eval() switches cuDNN to its
- * inference path.
+ * For a hidden size of at most 128 on compute capability 6.0 or newer the layer
+ * uses @c CUDNN_RNN_ALGO_PERSIST_STATIC_SMALL_H, provided cuDNN accepts it and
+ * its gate layout matches. Otherwise it uses @c CUDNN_RNN_ALGO_STANDARD.
+ * Arithmetic stays on cuDNN's default math mode so the gate order matches
+ * LibTorch. @c eval() switches cuDNN to its inference path.
  */
 class Gru : public Layer
 {

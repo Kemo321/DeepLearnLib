@@ -408,8 +408,9 @@ public:
     auto assert_finite(const char* context) const -> void;
 
     /**
-     * @brief Sum of all elements.
-     * @param dim Reserved. Only a full reduction (@c -1) is implemented.
+     * @brief Sum of all elements, as a one-element GPU tensor.
+     * @param dim Only a full reduction (@c -1) is implemented.
+     * @throws std::runtime_error if @p dim is not @c -1.
      */
     auto sum(int dim = -1) const -> Tensor;
 

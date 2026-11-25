@@ -3,8 +3,9 @@
  * @brief 2D convolution through cuDNN, plus the descriptor wrappers it needs.
  *
  * Bias is applied in the same cuDNN call as the convolution, with an identity
- * activation. Leaky ReLU stays a separate layer. Algorithms are chosen on the
- * first batch of a given shape and reused until the shape changes.
+ * activation. If cuDNN rejects that fused call, the convolution and the bias
+ * addition run as two calls. Leaky ReLU stays a separate layer. Algorithms are
+ * chosen on the first batch of a given shape and reused until the shape changes.
  */
 
 #pragma once
@@ -206,7 +207,8 @@ private:
  * The input is NCHW. Weights are exposed as @c weights and @c bias.
  * @c inertia_val is the scale applied to a weight gradient already stored
  * from an earlier backward; zero overwrites it. Forward and both backward
- * algorithms come from cuDNN's search the first time a shape is seen.
+ * algorithms come from cuDNN's timed search the first time a shape is seen.
+ * When the search returns nothing, cuDNN's heuristic choice is used instead.
  */
 class Conv2d : public Layer
 {

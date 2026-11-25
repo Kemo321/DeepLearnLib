@@ -128,22 +128,22 @@ $(function(){initNavTree('_profiler_8hpp_source.html',''); initResizable(true); 
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_profiler.html#a9ae8634a8086d3c70d1d5592ef42b931">   34</a></span>    <span class="keyword">auto</span> <a class="code hl_function" href="class_profiler.html#a9ae8634a8086d3c70d1d5592ef42b931">start</a>() -&gt; void;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40">   40</a></span>    [[nodiscard]] <span class="keyword">auto</span> <a class="code hl_function" href="class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40">stop</a>() -&gt; float;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_profiler.html#a69e39ddd5710b63263a8c3786ca760b7">   48</a></span>    [[nodiscard]] <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_function" href="class_profiler.html#a69e39ddd5710b63263a8c3786ca760b7">get_vram_usage_mb</a>() -&gt; std::size_t;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#if DEEPLEARNLIB_ENABLE_CUDA</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    cudaEvent_t start_event_ { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    cudaEvent_t stop_event_ { <span class="keyword">nullptr</span> };</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> running_ { <span class="keyword">false</span> };</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40">   41</a></span>    [[nodiscard]] <span class="keyword">auto</span> <a class="code hl_function" href="class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40">stop</a>() -&gt; float;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_profiler.html#a69e39ddd5710b63263a8c3786ca760b7">   49</a></span>    [[nodiscard]] <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_function" href="class_profiler.html#a69e39ddd5710b63263a8c3786ca760b7">get_vram_usage_mb</a>() -&gt; std::size_t;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#if DEEPLEARNLIB_ENABLE_CUDA</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    cudaEvent_t start_event_ { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    cudaEvent_t stop_event_ { <span class="keyword">nullptr</span> };</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">bool</span> running_ { <span class="keyword">false</span> };</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
 </div>
 <div class="ttc" id="a_tensor_8hpp_html"><div class="ttname"><a href="_tensor_8hpp.html">Tensor.hpp</a></div><div class="ttdoc">Float32 tensor, CUDA status checks, and the process-wide cuBLAS handle.</div></div>
-<div class="ttc" id="aclass_profiler_html_a5cc1c7535a2b9cc09127eb09e70a1a40"><div class="ttname"><a href="class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40">Profiler::stop</a></div><div class="ttdeci">auto stop() -&gt; float</div><div class="ttdoc">Record the stop event and wait for it.</div></div>
+<div class="ttc" id="aclass_profiler_html_a5cc1c7535a2b9cc09127eb09e70a1a40"><div class="ttname"><a href="class_profiler.html#a5cc1c7535a2b9cc09127eb09e70a1a40">Profiler::stop</a></div><div class="ttdeci">auto stop() -&gt; float</div><div class="ttdoc">Record the stop event on the legacy default stream and wait for it.</div></div>
 <div class="ttc" id="aclass_profiler_html_a69e39ddd5710b63263a8c3786ca760b7"><div class="ttname"><a href="class_profiler.html#a69e39ddd5710b63263a8c3786ca760b7">Profiler::get_vram_usage_mb</a></div><div class="ttdeci">static auto get_vram_usage_mb() -&gt; std::size_t</div><div class="ttdoc">Memory occupied on the current device, in mebibytes.</div></div>
-<div class="ttc" id="aclass_profiler_html_a9ae8634a8086d3c70d1d5592ef42b931"><div class="ttname"><a href="class_profiler.html#a9ae8634a8086d3c70d1d5592ef42b931">Profiler::start</a></div><div class="ttdeci">auto start() -&gt; void</div><div class="ttdoc">Record the start event on the current device.</div></div>
+<div class="ttc" id="aclass_profiler_html_a9ae8634a8086d3c70d1d5592ef42b931"><div class="ttname"><a href="class_profiler.html#a9ae8634a8086d3c70d1d5592ef42b931">Profiler::start</a></div><div class="ttdeci">auto start() -&gt; void</div><div class="ttdoc">Record the start event on the legacy default stream.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

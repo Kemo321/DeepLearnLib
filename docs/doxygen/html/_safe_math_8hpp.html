@@ -140,7 +140,7 @@ constexpr float&#160;</td><td class="memItemRight" valign="bottom"><b>dl::kSafeE
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Host and device helpers that keep divisions away from zero. </p>
-<p>The cross-entropy kernels use the same epsilon when they clamp a probability and when they divide by the batch size. </p>
+<p>The cross-entropy code uses the same epsilon to floor the softmax sum, to clamp a probability before the logarithm, and to divide by the batch size. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="ab1bdb52544fe926d1ef7b16bb26d344c" name="ab1bdb52544fe926d1ef7b16bb26d344c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1bdb52544fe926d1ef7b16bb26d344c">&#9670;&#160;</a></span>safe_div()</h2>

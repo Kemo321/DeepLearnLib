@@ -118,7 +118,7 @@ $(function(){initNavTree('class_network.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afdd559b9a265772a28ca85e281ac88f9" id="r_afdd559b9a265772a28ca85e281ac88f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdd559b9a265772a28ca85e281ac88f9">Network</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="class_layer.html">Layer</a> &gt; &gt; layers_vector, float learning_rate, float <a class="el" href="#ad8768e7ad362eec7047ea29f02222610">gradient_clip</a>=<a class="el" href="_safe_math_8hpp.html#ae8004df7937615618c5f731a904853ae">dl::kDefaultGradientClip</a>)</td></tr>
-<tr class="memdesc:afdd559b9a265772a28ca85e281ac88f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take ownership of <code class="param">layers_vector</code> and copy optimizer settings onto each layer.  <br /></td></tr>
+<tr class="memdesc:afdd559b9a265772a28ca85e281ac88f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take ownership of <code class="param">layers_vector</code> and write the learning rate and clip bound onto each layer.  <br /></td></tr>
 <tr class="separator:afdd559b9a265772a28ca85e281ac88f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acadc344a5cc89725659813ee98318414" id="r_acadc344a5cc89725659813ee98318414"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acadc344a5cc89725659813ee98318414">forward</a> (const <a class="el" href="classdl_1_1_tensor.html">dl::Tensor</a> &amp;input_tensor, cudaStream_t stream=0) -&gt; <a class="el" href="classdl_1_1_tensor.html">dl::Tensor</a></td></tr>
 <tr class="memdesc:acadc344a5cc89725659813ee98318414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pass <code class="param">input_tensor</code> through every layer.  <br /></td></tr>
@@ -174,12 +174,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>clip_parameter_gradie
       </table>
 </div><div class="memdoc">
 
-<p>Take ownership of <code class="param">layers_vector</code> and copy optimizer settings onto each layer. </p>
+<p>Take ownership of <code class="param">layers_vector</code> and write the learning rate and clip bound onto each layer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">layers_vector</td><td>Layers in forward order. A null entry is rejected. </td></tr>
+    <tr><td class="paramname">layers_vector</td><td>Layers in forward order. </td></tr>
     <tr><td class="paramname">learning_rate</td><td>Initial step size written to every layer. </td></tr>
     <tr><td class="paramname">gradient_clip</td><td>Absolute clip bound. The default is zero, which disables clipping. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>if <code class="param">layers_vector</code> contains a null layer. </td></tr>
   </table>
   </dd>
 </dl>

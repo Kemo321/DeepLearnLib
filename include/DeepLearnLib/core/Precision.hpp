@@ -2,8 +2,8 @@
  * @file Precision.hpp
  * @brief Element type stored by @c dl::Tensor.
  *
- * Training uses float32 only. Matrix products may still run in TF32 inside
- * cuBLAS; that does not add another dtype here.
+ * Training uses float32 only. Matrix products in cuBLAS and convolutions in
+ * cuDNN may still run in TF32; that does not add another dtype here.
  */
 
 #pragma once

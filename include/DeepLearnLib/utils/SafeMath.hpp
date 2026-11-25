@@ -2,8 +2,8 @@
  * @file SafeMath.hpp
  * @brief Host and device helpers that keep divisions away from zero.
  *
- * The cross-entropy kernels use the same epsilon when they clamp a probability
- * and when they divide by the batch size.
+ * The cross-entropy code uses the same epsilon to floor the softmax sum, to
+ * clamp a probability before the logarithm, and to divide by the batch size.
  */
 
 #pragma once
