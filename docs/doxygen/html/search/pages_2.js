@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['deeplearnlib_0',['DeepLearnLib',['../index.html',1,'']]]
+  ['counts_0',['Line counts',['../md_reports_2loc.html',1,'']]],
+  ['coverage_1',['Coverage',['../md_reports_2coverage.html',1,'']]]
 ];

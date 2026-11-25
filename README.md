@@ -31,7 +31,7 @@ The generated reference is one HTML site: <https://kemo321.github.io/DeepLearnLi
 doxygen Doxyfile
 ```
 
-Polish install and build steps are in [INSTALL.md](INSTALL.md).
+Install and build steps are in [INSTALL.md](INSTALL.md).
 
 ## Build
 

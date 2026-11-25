@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['ręczne_0',['Budowanie ręczne',['../md__i_n_s_t_a_l_l.html#autotoc_md11',1,'']]],
-  ['recorded_20runs_1',['Recorded runs',['../md_reports_2measurements.html#autotoc_md27',1,'']]],
-  ['reference_2',['API reference',['../index.html#autotoc_md2',1,'']]],
+  ['recorded_20runs_0',['Recorded runs',['../md_reports_2measurements.html#autotoc_md27',1,'']]],
+  ['reference_1',['API reference',['../index.html#autotoc_md2',1,'']]],
+  ['requirements_2',['Requirements',['../md__i_n_s_t_a_l_l.html#autotoc_md8',1,'']]],
   ['reset_3',['reset',['../class_classification_loader.html#ac8d8bdd22d6f354cb7f2a049a12fe729',1,'ClassificationLoader::reset()'],['../class_packed_image_loader.html#a73a0fd8c292f0dd95bd39394541d86f0',1,'PackedImageLoader::reset()']]],
   ['results_20cifar10_20metrics_5fcustom_20csv_20tt_4',['&lt;tt&gt;results/cifar10/metrics_custom.csv&lt;/tt&gt;',['../md_reports_2measurements.html#autotoc_md28',1,'']]],
   ['results_20cifar10_20metrics_5ftorch_20csv_20tt_5',['&lt;tt&gt;results/cifar10/metrics_torch.csv&lt;/tt&gt;',['../md_reports_2measurements.html#autotoc_md29',1,'']]],

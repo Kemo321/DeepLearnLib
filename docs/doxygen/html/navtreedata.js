@@ -31,14 +31,14 @@ var NAVTREE =
     [ "Run", "index.html#autotoc_md4", null ],
     [ "Tests, coverage, and line counts", "index.html#autotoc_md5", null ],
     [ "License", "index.html#autotoc_md6", null ],
-    [ "Instalacja i budowanie", "md__i_n_s_t_a_l_l.html", [
-      [ "Wymagania", "md__i_n_s_t_a_l_l.html#autotoc_md8", null ],
+    [ "Installation and build", "md__i_n_s_t_a_l_l.html", [
+      [ "Requirements", "md__i_n_s_t_a_l_l.html#autotoc_md8", null ],
       [ "Docker", "md__i_n_s_t_a_l_l.html#autotoc_md9", null ],
       [ "Windows", "md__i_n_s_t_a_l_l.html#autotoc_md10", null ],
-      [ "Budowanie ręczne", "md__i_n_s_t_a_l_l.html#autotoc_md11", null ],
-      [ "Testy", "md__i_n_s_t_a_l_l.html#autotoc_md12", null ],
-      [ "Dokumentacja z kodu", "md__i_n_s_t_a_l_l.html#autotoc_md13", null ],
-      [ "Metryki linii", "md__i_n_s_t_a_l_l.html#autotoc_md14", null ]
+      [ "Manual build", "md__i_n_s_t_a_l_l.html#autotoc_md11", null ],
+      [ "Tests", "md__i_n_s_t_a_l_l.html#autotoc_md12", null ],
+      [ "Documentation from the code", "md__i_n_s_t_a_l_l.html#autotoc_md13", null ],
+      [ "Line metrics", "md__i_n_s_t_a_l_l.html#autotoc_md14", null ]
     ] ],
     [ "Line counts", "md_reports_2loc.html", [
       [ "Command", "md_reports_2loc.html#autotoc_md16", null ],

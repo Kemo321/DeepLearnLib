@@ -6,10 +6,9 @@ var searchData=
   ['batch_5fsize_3',['batch_size',['../class_classification_loader.html#a2fcbef2dab2715e9847da66ba73b1e21',1,'ClassificationLoader::batch_size()'],['../class_packed_image_loader.html#a402f0c4a40500d35198ba2cb36240dd8',1,'PackedImageLoader::batch_size()']]],
   ['benchmark_20drivers_4',['Training and benchmark drivers',['../md_reports_2coverage.html#autotoc_md24',1,'']]],
   ['bind_5fcudnn_5fstream_5',['bind_cudnn_stream',['../_conv2d_8hpp.html#afbb878aeafcd7c3a2cce20bb386183c2',1,'dl']]],
-  ['budowanie_6',['Instalacja i budowanie',['../md__i_n_s_t_a_l_l.html',1,'']]],
-  ['budowanie_20ręczne_7',['Budowanie ręczne',['../md__i_n_s_t_a_l_l.html#autotoc_md11',1,'']]],
-  ['build_8',['Build',['../index.html#autotoc_md3',1,'']]],
-  ['by_20directory_9',['By directory',['../md_reports_2loc.html#autotoc_md18',1,'']]],
-  ['by_20language_10',['By language',['../md_reports_2loc.html#autotoc_md17',1,'']]],
-  ['by_20nvcc_11',['Library sources compiled by nvcc',['../md_reports_2loc.html#autotoc_md19',1,'']]]
+  ['build_6',['Build',['../index.html#autotoc_md3',1,'']]],
+  ['build_7',['build',['../md__i_n_s_t_a_l_l.html',1,'Installation and build'],['../md__i_n_s_t_a_l_l.html#autotoc_md11',1,'Manual build']]],
+  ['by_20directory_8',['By directory',['../md_reports_2loc.html#autotoc_md18',1,'']]],
+  ['by_20language_9',['By language',['../md_reports_2loc.html#autotoc_md17',1,'']]],
+  ['by_20nvcc_10',['Library sources compiled by nvcc',['../md_reports_2loc.html#autotoc_md19',1,'']]]
 ];

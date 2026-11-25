@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['line_20counts_0',['Line counts',['../md_reports_2loc.html',1,'']]]
+  ['installation_20and_20build_0',['Installation and build',['../md__i_n_s_t_a_l_l.html',1,'']]]
 ];

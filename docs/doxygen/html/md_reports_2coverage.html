@@ -108,7 +108,7 @@ $(function(){initNavTree('md_reports_2coverage.html',''); initResizable(true); }
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md20"></a></p>
 <p>This report maps library sources, application models, and the shared benchmark headers onto the GoogleTest suite. A file counts as covered when a test names it. Training and forward programs are drivers: they are not part of that percentage, because the loop, the CSV, and the models they call are what the tests check.</p>
-<p>Line, function, and branch counts are from the lcov artifact of the Debug CI job on commit 6f8e225 (17 Oct 2026, lcov 1.15). The runner has no GPU, so CUDA lines were not executed. The trace is limited to src, include, tests, and benchmarks/models and benchmarks/common; the totals below are only the library, models, and shared headers, not libstdc++ or the CUDA headers.</p>
+<p>Line, function, and branch counts are from the lcov artifact of the Debug CI job on commit 6f8e225 (17 Oct 2026, lcov 1.15). The runner has no GPU. nvcc did not emit gcov records, so the CUDA translation units are absent from the trace rather than scored as zero. Totals count library, model, and shared-header records only, not libstdc++ or the CUDA headers.</p>
 <ul>
 <li>Files named by a test: <b>49 / 66</b> (74.2%)</li>
 <li>Execution on 23 Nov 2026: <code>build/tests/dllib_tests.exe</code> passed <b>147 / 147</b> tests in 1.4 s. None were skipped. The executable is the Release build from 17 Oct 2026, 20:16. Later edits on those trees are comments and blank lines, so they do not change that program.</li>

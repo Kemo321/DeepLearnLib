@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['measurements_0',['Measurements',['../md_reports_2measurements.html',1,'']]]
+  ['line_20counts_0',['Line counts',['../md_reports_2loc.html',1,'']]]
 ];

@@ -7,6 +7,5 @@ var searchData=
   ['kexperimentseed_4',['kExperimentSeed',['../_experiment_seed_8hpp.html#a68e003d6ecd03e7567d664d75e9599a3',1,'dl']]],
   ['klinearbiasseed_5',['kLinearBiasSeed',['../_experiment_seed_8hpp.html#a33333482ea29f3d3d30057fc1eda6b20',1,'dl']]],
   ['klinearweightseed_6',['kLinearWeightSeed',['../_experiment_seed_8hpp.html#ad718c7effd99871ca3adaa7fc2c4ef97',1,'dl']]],
-  ['kodu_7',['Dokumentacja z kodu',['../md__i_n_s_t_a_l_l.html#autotoc_md13',1,'']]],
-  ['ksafeeps_8',['kSafeEps',['../_safe_math_8hpp.html#a4ab5799709db6fcb04dc8011867c8761',1,'dl']]]
+  ['ksafeeps_7',['kSafeEps',['../_safe_math_8hpp.html#a4ab5799709db6fcb04dc8011867c8761',1,'dl']]]
 ];

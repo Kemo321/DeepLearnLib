@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DeepLearnLib: Instalacja i budowanie</title>
+<title>DeepLearnLib: Installation and build</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,63 +103,63 @@ $(function(){initNavTree('md__i_n_s_t_a_l_l.html',''); initResizable(true); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Instalacja i budowanie</div></div>
+  <div class="headertitle"><div class="title">Installation and build</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md7"></a></p>
-<p>Instrukcja dotyczy repozytorium DeepLearnLib. Rdzeń biblioteki nie linkuje LibTorch. LibTorch jest opcjonalny i służy wyłącznie programom porównawczym (<code>*_torch</code>).</p>
-<p>Skrót po angielsku jest w <a class="el" href="index.html#md__r_e_a_d_m_e">README.md</a>. Wygenerowany opis API jest w <a href="docs/doxygen/html/index.html">docs/doxygen/html/index.html</a>.</p>
+<p>These steps apply to the DeepLearnLib repository. The library core does not link LibTorch. LibTorch is optional and is used only by the comparison programs (<code>*_torch</code>).</p>
+<p>A short overview is in <a class="el" href="index.html#md__r_e_a_d_m_e">README.md</a>. The generated API reference is one HTML site: <a href="https://kemo321.github.io/DeepLearnLib/">https://kemo321.github.io/DeepLearnLib/</a>.</p>
 <h1><a class="anchor" id="autotoc_md8"></a>
-Wymagania</h1>
+Requirements</h1>
 <ul>
-<li>karta NVIDIA i sterownik zgodny z wygenerowanym kodem SASS</li>
-<li>CMake 3.18 lub nowszy</li>
+<li>an NVIDIA GPU and a driver that matches the generated SASS</li>
+<li>CMake 3.18 or newer</li>
 <li>Ninja</li>
-<li>kompilator C++17</li>
-<li>CUDA Toolkit z nvcc, cuBLAS i cuDNN (w tym projekcie sprawdzano CUDA 12 oraz 13)</li>
-<li>OpenCV, jeśli mają powstać programy na zbiorach obrazowych</li>
+<li>a C++17 compiler</li>
+<li>the CUDA Toolkit with nvcc, cuBLAS, and cuDNN (this project was checked with CUDA 12 and 13)</li>
+<li>OpenCV, if the image-dataset programs are to be built</li>
 </ul>
-<p>Bez OpenCV CMake buduje rdzeń i testy, które nie dekodują obrazów. Katalog <code>benchmarks/</code> jest wtedy pomijany.</p>
-<p>Na Windowsie potrzebne są dodatkowo:</p>
+<p>Without OpenCV, CMake builds the core and the tests that do not decode images. The <code>benchmarks/</code> directory is then skipped.</p>
+<p>Windows also needs:</p>
 <ul>
-<li>Visual Studio z narzędziami C++ (MSVC). Skrypt szuka <code>vcvars64.bat</code>.</li>
-<li>Git Bash w <code>C:\Program Files\Git\bin\bash.exe</code>. Nie używać <code>bash.exe</code> z WSL: nvcc nie zobaczy nagłówków MSVC.</li>
+<li>Visual Studio with the C++ tools (MSVC). The script looks for <code>vcvars64.bat</code>.</li>
+<li>Git Bash at <code>C:\Program Files\Git\bin\bash.exe</code>. Do not use <code>bash.exe</code> from WSL: nvcc will not see the MSVC headers.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Docker</h1>
-<p>Z katalogu repozytorium:</p>
+<p>From the repository root:</p>
 <div class="fragment"><div class="line">docker compose up -d --build</div>
 <div class="line">docker exec -it deeplearn_dev_container bash</div>
 <div class="line">./scripts/dev.sh</div>
 <div class="line">./scripts/menu.sh</div>
-</div><!-- fragment --><p>Obraz bazuje na kontenerze NGC PyTorch, bo ta paczka ustala razem CUDA, cuDNN i Pythona. Biblioteka DeepLearnLib i tak nie zawiera LibTorch. Katalog repozytorium jest montowany w <code>/app</code>. <code>build/</code> i ccache są wolumenami. Kontener prosi o jedną kartę NVIDIA, a <code>/dev/shm</code> ma 32 GiB.</p>
-<p><code>./scripts/dev.sh</code> konfiguruje Ninja z <code>USE_CUDA=ON</code>, buduje <code>dllib_tests</code> i uruchamia testy.</p>
+</div><!-- fragment --><p>The image is based on the NGC PyTorch container, because that package pins CUDA, cuDNN, and Python together. DeepLearnLib still does not contain LibTorch. The repository directory is mounted at <code>/app</code>. <code>build/</code> and ccache are volumes. The container requests one NVIDIA GPU, and <code>/dev/shm</code> is 32 GiB.</p>
+<p><code>./scripts/dev.sh</code> configures Ninja with <code>USE_CUDA=ON</code>, builds <code>dllib_tests</code>, and runs the tests.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Windows</h1>
-<p>Z katalogu repozytorium, w PowerShell:</p>
+<p>From the repository root, in PowerShell:</p>
 <div class="fragment"><div class="line">powershell -File scripts\dev.ps1</div>
-</div><!-- fragment --><p>Skrypt ładuje środowisko Visual C++ i dopiero wtedy uruchamia Git Bash oraz <code>scripts/dev.sh</code>. Samo <code>cmake</code> z zwykłego PowerShella kończy się błędem braku <code>stdlib.h</code>, bo nvcc kompiluje kod hosta kompilatorem MSVC.</p>
-<p>cuDNN i OpenCV muszą być widoczne przy konfiguracji. W używanej konfiguracji lokalnej:</p>
+</div><!-- fragment --><p>The script loads the Visual C++ environment and only then starts Git Bash and <code>scripts/dev.sh</code>. Running <code>cmake</code> from a plain PowerShell fails with a missing <code>stdlib.h</code>, because nvcc compiles the host code with the MSVC compiler.</p>
+<p>cuDNN and OpenCV must be visible at configure time. In the local setup used here:</p>
 <ul>
-<li><code>CUDNN_ROOT</code> wskazuje katalog cuDNN (nagłówki w <code>include</code>, biblioteki w <code>lib</code> albo <code>lib/x64</code>)</li>
-<li><code>OpenCV_DIR</code> wskazuje katalog z <code>OpenCVConfig.cmake</code></li>
+<li><code>CUDNN_ROOT</code> points at the cuDNN directory (headers in <code>include</code>, libraries in <code>lib</code> or <code>lib/x64</code>)</li>
+<li><code>OpenCV_DIR</code> points at the directory that contains <code>OpenCVConfig.cmake</code></li>
 </ul>
-<p>Jeśli cuDNN pochodzi z pakietu pip <code>nvidia-cudnn</code>, ustaw <code>CUDNN_ROOT</code> na ten katalog. CMake kopiuje znalezione DLL cuDNN obok <code>dllib_tests</code>, żeby loader nie wziął innej kopii z <code>PATH</code>.</p>
+<p>If cuDNN comes from the <code>nvidia-cudnn</code> pip package, set <code>CUDNN_ROOT</code> to that directory. CMake copies the cuDNN DLLs it finds next to <code>dllib_tests</code>, so the loader does not pick up another copy from <code>PATH</code>.</p>
 <h1><a class="anchor" id="autotoc_md11"></a>
-Budowanie ręczne</h1>
-<p>Linux, Git Bash albo kontener:</p>
+Manual build</h1>
+<p>Linux, Git Bash, or the container:</p>
 <div class="fragment"><div class="line">cmake -S . -B build -G Ninja -DUSE_CUDA=ON -DCMAKE_BUILD_TYPE=Release</div>
 <div class="line">cmake --build build --parallel --target dllib_tests</div>
 <div class="line">./build/tests/dllib_tests</div>
-</div><!-- fragment --><p>Konfiguracja odpytuje <code>nvidia-smi</code> i ustawia <code>CMAKE_CUDA_ARCHITECTURES</code> na <code>&lt;major&gt;&lt;minor&gt;-real</code>. Dzięki temu sterownik nie kompiluje PTX przy pierwszym uruchomieniu. W CI, gdzie karty nie ma, lista architektur jest podana jawnie i sprawdzenie kończy się na linkowaniu.</p>
-<p>Pomiary czasu rób w <code>Release</code>. <code>DEBUG_NUMERICS=ON</code> po każdym przebiegu warstwy sprawdza NaN i Inf i przy tym synchronizuje kartę, więc nie włącza się tego w przebiegu, z którego pochodzą liczby w pracy.</p>
-<p>Pełne drzewo, łącznie z programami treningowymi, powstaje przez <code>cmake --build build --parallel</code> wtedy, gdy OpenCV zostało znalezione.</p>
+</div><!-- fragment --><p>Configuration queries <code>nvidia-smi</code> and sets <code>CMAKE_CUDA_ARCHITECTURES</code> to <code>&lt;major&gt;&lt;minor&gt;-real</code>. The driver then does not compile PTX on the first launch. In CI, where there is no GPU, the architecture list is given explicitly and the check stops at link time.</p>
+<p>Time measurements belong in <code>Release</code>. <code>DEBUG_NUMERICS=ON</code> checks for NaN and Inf after every layer pass and synchronizes the GPU to do so, so leave it off for the run that produces the numbers in the thesis.</p>
+<p>The full tree, including the training programs, is produced by <code>cmake --build build --parallel</code> once OpenCV has been found.</p>
 <h1><a class="anchor" id="autotoc_md12"></a>
-Testy</h1>
-<p>Cel testów to <code>dllib_tests</code> (GoogleTest). Przypadki wymagające karty są pomijane, gdy <code>nvidia-smi</code> się nie powiedzie.</p>
+Tests</h1>
+<p>The test target is <code>dllib_tests</code> (GoogleTest). Cases that need a GPU are skipped when <code>nvidia-smi</code> fails.</p>
 <div class="fragment"><div class="line">./build/tests/dllib_tests</div>
-</div><!-- fragment --><p>Na Windowsie plik nazywa się <code>dllib_tests.exe</code>. <code>scripts/verify_gpu.ps1</code> uruchamia te testy dopiero po udanym <code>nvidia-smi</code> i odmawia pracy, gdy ustawione jest <code>GITHUB_ACTIONS</code>.</p>
-<p>Pokrycie linii na kompilatorze GCC/Clang:</p>
+</div><!-- fragment --><p>On Windows the file is named <code>dllib_tests.exe</code>. <code>scripts/verify_gpu.ps1</code> runs these tests only after <code>nvidia-smi</code> succeeds, and it refuses to run when <code>GITHUB_ACTIONS</code> is set.</p>
+<p>Line coverage with GCC or Clang:</p>
 <div class="fragment"><div class="line">cmake -S . -B build_coverage -G Ninja -DUSE_CUDA=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=ON</div>
 <div class="line">cmake --build build_coverage --target dllib_tests</div>
 <div class="line">./build_coverage/tests/dllib_tests</div>
@@ -167,19 +167,19 @@ Testy</h1>
 <div class="line">lcov --extract coverage.info &#39;*/src/*&#39; &#39;*/include/*&#39; &#39;*/tests/*&#39; &#39;*/benchmarks/models/*&#39; &#39;*/benchmarks/common/*&#39; \</div>
 <div class="line">  --output-file coverage.filtered.info</div>
 <div class="line">python3 scripts/coverage_report.py --lcov coverage.filtered.info --output reports/coverage.md</div>
-</div><!-- fragment --><p><code>ENABLE_COVERAGE</code> dokłada <code>--coverage</code> tylko poza MSVC. Na Windowsie ten przełącznik nic nie zmienia, bo instrumentacja gcov nie obejmuje <code>cl.exe</code>.</p>
+</div><!-- fragment --><p><code>ENABLE_COVERAGE</code> adds <code>--coverage</code> only outside MSVC. On Windows the switch changes nothing, because gcov instrumentation does not cover <code>cl.exe</code>.</p>
 <h1><a class="anchor" id="autotoc_md13"></a>
-Dokumentacja z kodu</h1>
-<p>Komentarze Doxygen są w nagłówkach <code>include/DeepLearnLib/</code> oraz w <code>benchmarks/models/</code>. Wygeneruj HTML:</p>
+Documentation from the code</h1>
+<p>Doxygen comments are in the <code>include/DeepLearnLib/</code> headers and in <code>benchmarks/models/</code>. Generate the HTML:</p>
 <div class="fragment"><div class="line">doxygen Doxyfile</div>
-</div><!-- fragment --><p>Wynik jest w <code>docs/doxygen/html/index.html</code> i jest w repozytorium. Po zmianie komentarzy wygeneruj go ponownie tym samym poleceniem.</p>
+</div><!-- fragment --><p>The result is <code>docs/doxygen/html/index.html</code> and is published at <a href="https://kemo321.github.io/DeepLearnLib/">https://kemo321.github.io/DeepLearnLib/</a>. The coverage report is at <a href="https://kemo321.github.io/DeepLearnLib/coverage.html">https://kemo321.github.io/DeepLearnLib/coverage.html</a>, and the line-count table is at <a href="https://kemo321.github.io/DeepLearnLib/loc.html">https://kemo321.github.io/DeepLearnLib/loc.html</a>. After a comment change, generate the HTML again with the same command.</p>
 <h1><a class="anchor" id="autotoc_md14"></a>
-Metryki linii</h1>
-<p>Z zainstalowanym <a href="https://github.com/AlDanial/cloc">cloc</a>:</p>
+Line metrics</h1>
+<p>With <a href="https://github.com/AlDanial/cloc">cloc</a> installed:</p>
 <div class="fragment"><div class="line">cloc src include tests benchmarks --exclude-dir=torch</div>
-</div><!-- fragment --><p>Albo skrypt, który woła cloc i zapisuje <code>reports/loc.md</code>:</p>
+</div><!-- fragment --><p>Or the script that calls cloc and writes <code>reports/loc.md</code>:</p>
 <div class="fragment"><div class="line">powershell -File scripts\loc.ps1</div>
-</div><!-- fragment --><p>Jądra CUDA leżą w plikach <code>.cpp</code> kompilowanych przez nvcc. cloc klasyfikuje je jako C++, bo rozszerzenie nie jest <code>.cu</code>. Raport rozdziela te pliki według listy w <code>src/CMakeLists.txt</code>. </p>
+</div><!-- fragment --><p>CUDA kernels live in <code>.cpp</code> files compiled by nvcc. cloc classifies them as C++, because the extension is not <code>.cu</code>. The report separates those files using the list in <code>src/CMakeLists.txt</code>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
